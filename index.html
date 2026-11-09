@@ -57,18 +57,22 @@ p{margin:0}
 .small{font-size:13px;color:var(--muted)}
 .num{font-variant-numeric:tabular-nums}
 
-/* Header + Countdown */
-.topbar{background:var(--paper);text-align:center;padding:12px 16px}
-.logo{display:inline-block;height:34px;width:auto}
+/* Header: Logo | Countdown | Code (eine Zeile, sticky) */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:var(--paper)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--paper);border-bottom:1px solid var(--line);padding:8px max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px))}
+.topbar-row{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.logo{display:block;height:34px;width:auto;flex:none}
 .logo--light{filter:brightness(0) invert(1)}
-.codebar{background:var(--caramel);color:#fff;padding:9px max(16px,env(safe-area-inset-right,0px)) 9px max(16px,env(safe-area-inset-left,0px))}
-.codebar .wrap{flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
-.codebar b{display:block;font-size:14px}
-.codebar span{font-size:12px;opacity:.9}
-.timer{display:flex;gap:5px}
-.timer div{background:#fff;color:var(--ink);border-radius:5px;min-width:36px;text-align:center;padding:3px 4px;line-height:1.1}
-.timer strong{display:block;font-size:16px;font-variant-numeric:tabular-nums}
-.timer small{font-size:9px;color:var(--muted)}
+.cd{display:flex;flex-direction:column;align-items:center;line-height:1.1;color:var(--ink)}
+.cd small{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--alert)}
+.cd span{font-size:17px;font-weight:700}
+.codechip{display:flex;align-items:center;gap:8px;background:var(--caramel-soft);border:1.5px dashed var(--caramel);border-radius:8px;padding:5px 10px;color:var(--ink);flex:none}
+.codechip-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.codechip small{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.codechip b{font-size:16px;letter-spacing:.08em}
+.codechip svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.8}
+.codechip.ok{border-style:solid;border-color:var(--good);background:#E3F1E8}
+@media (max-width:360px){.cd small,.codechip small{display:none}.logo{height:28px}}
 
 /* Hero */
 .hero-media{position:relative;border-radius:var(--r);overflow:hidden;background:#fff}
@@ -248,17 +252,19 @@ footer a{color:#CDBFB2}
 <body>
 
 <!-- ========== HEADER + CODE-COUNTDOWN ========== -->
-<div class="topbar"><img class="logo" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/SABRO_Logo_klein_ohne_HG.svg?v=1722941867" alt="SABRO" width="70" height="34"></div>
-<div class="codebar" role="note">
-  <div class="wrap">
-    <div><b>Code <span class="js-code">RELAX5</span> aktiv</b><span>Nur noch heute einlösbar</span></div>
-    <div class="timer" aria-label="Verbleibende Zeit">
-      <div><strong id="t-h">00</strong><small>Std</small></div>
-      <div><strong id="t-m">00</strong><small>Min</small></div>
-      <div><strong id="t-s">00</strong><small>Sek</small></div>
+<header class="topbar">
+  <div class="topbar-row">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/SABRO_Logo_klein_ohne_HG.svg?v=1722941867" alt="SABRO" width="70" height="34">
+    <div class="cd" role="timer" aria-label="Code gültig noch">
+      <small>Endet in</small>
+      <span class="num"><b id="t-h">00</b>:<b id="t-m">00</b>:<b id="t-s">00</b></span>
     </div>
+    <button class="codechip" type="button" data-copy aria-label="Code kopieren">
+      <span class="codechip-txt"><small>Dein Code</small><b class="js-code">RELAX5</b></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+    </button>
   </div>
-</div>
+</header>
 
 <!-- ========== HERO ========== -->
 <section class="band band--dark hero">
@@ -772,7 +778,7 @@ $("#more-rv").addEventListener("click", e => { $$(".rv.more").forEach(el => el.h
 /* Code kopieren */
 function toast(msg){ const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 1800); }
 $$("[data-copy]").forEach(b => b.addEventListener("click", () => {
-  const done = () => toast(`Code ${OFFER.code} kopiert`);
+  const done = () => { toast(`Code ${OFFER.code} kopiert`); b.classList.add("ok"); setTimeout(() => b.classList.remove("ok"), 1800); };
   if (navigator.clipboard) navigator.clipboard.writeText(OFFER.code).then(done).catch(() => { selectCode(); toast("Code markiert, bitte kopieren"); });
   else { selectCode(); toast("Code markiert, bitte kopieren"); }
 }));
