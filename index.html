@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>All-in Relax Angebot</title>
+<meta name="description" content="KUDDE Hundebett + MJUCK Einlage + MJUCKIS Kissen im All-in Relax Bundle. Mit deinem Code sparst du heute zusätzlich.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.shopify.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: eine mobile-first Spalte (max. 560px) wie die Glow25-Vorlage; dunkle "Zartbitter"-Bänder für Hero & Angebot, helle Sand-Bänder dazwischen */
+:root{
+  --sand:#F4F0ED;        /* SABRO Hintergrund (aus Shopify-Hinweisbox) */
+  --paper:#FBF9F7;
+  --espresso:#33251E;    /* dunkles Band, angelehnt an KUDDE zartbitter */
+  --espresso-2:#463329;
+  --caramel:#A38361;     /* SABRO Akzent */
+  --caramel-soft:#E9DCCB;
+  --ink:#2A201B;
+  --muted:#6F6259;
+  --line:#E2D8CF;
+  --good:#2F7A4E;
+  --alert:#A3402F;
+  --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:"Figtree", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --r:10px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 16px/1.55 var(--font-body);padding-bottom:84px}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--caramel);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:44px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.band--dark{background:var(--espresso);color:#F6EFE8}
+.band--paper{background:var(--paper)}
+.band--tint{background:#EDE5DD}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.12}
+h1{font-size:clamp(32px,8.4vw,42px)}
+h2{font-size:clamp(27px,6.6vw,34px)}
+h3{font-size:22px}
+em.hl{font-style:italic;color:var(--caramel)}
+em.mark{font-style:italic;background:var(--caramel);color:#fff;padding:0 .18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--caramel)}
+p{margin:0}
+.lead{color:var(--muted)}
+.band--dark .lead{color:#D9CCBF}
+.small{font-size:13px;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Header + Countdown */
+.topbar{background:var(--paper);text-align:center;padding:12px 16px}
+.logo{font-family:var(--font-display);font-weight:600;letter-spacing:.22em;font-size:22px;color:var(--espresso)}
+.codebar{background:var(--caramel);color:#fff;padding:9px max(16px,env(safe-area-inset-right,0px)) 9px max(16px,env(safe-area-inset-left,0px))}
+.codebar .wrap{flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+.codebar b{display:block;font-size:14px}
+.codebar span{font-size:12px;opacity:.9}
+.timer{display:flex;gap:5px}
+.timer div{background:#fff;color:var(--ink);border-radius:5px;min-width:36px;text-align:center;padding:3px 4px;line-height:1.1}
+.timer strong{display:block;font-size:16px;font-variant-numeric:tabular-nums}
+.timer small{font-size:9px;color:var(--muted)}
+
+/* Hero */
+.pill{align-self:flex-start;background:var(--caramel);color:#fff;font-weight:600;font-size:14px;padding:8px 12px;border-radius:6px}
+.hero-sub{border-left:2px solid var(--caramel);padding-left:12px;font-size:15px;color:#E7DCD1}
+.codecard{background:var(--espresso-2);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+.codecard p{font-size:15px;color:#EADFD4}
+.coderow{display:flex;gap:8px;align-items:stretch}
+.code{flex:1;min-width:0;border:2px dashed var(--caramel);border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 22px/1 var(--font-body);letter-spacing:.14em;color:#fff;padding:10px}
+.copy{background:var(--caramel);color:#fff;border:0;border-radius:8px;padding:0 16px;font-weight:600;font-size:14px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:var(--r);overflow:hidden}
+.duo img{aspect-ratio:3/4;object-fit:cover;width:100%;height:100%}
+.benefits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.benefits li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:15px}
+.benefits svg{width:22px;height:22px;stroke:var(--caramel);fill:none;stroke-width:1.6;margin-top:1px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;text-align:center;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border-radius:8px;padding:17px 20px;border:0;width:100%}
+.btn--light{background:#fff;color:var(--espresso)}
+.btn--dark{background:var(--espresso);color:#fff}
+.btn--go{background:var(--good);color:#fff;font-size:15px;padding:19px 20px;box-shadow:0 6px 18px rgba(47,122,78,.28)}
+.btn-pill{align-self:center;width:auto;border-radius:999px;padding:14px 26px;font-size:13px}
+.stars{color:#E5A93B;letter-spacing:1px}
+.rating{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;text-align:center}
+.trust b{display:block;font-family:var(--font-display);font-weight:500;font-size:20px;color:#fff}
+.trust span{font-size:12px;color:#CDBFB2;line-height:1.3;display:block}
+
+/* Quick quotes */
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.qcard img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.qcard div{padding:12px;display:flex;flex-direction:column;gap:4px;text-align:center}
+.qcard b{font-size:14px}
+.qcard p{font-size:13px;color:var(--muted);font-style:italic}
+
+/* Reasons */
+.reason{display:flex;flex-direction:column;gap:14px;padding-top:8px}
+.reason .no{font-family:var(--font-display);font-style:italic;color:var(--caramel);font-size:18px}
+.reason img{border-radius:var(--r);aspect-ratio:4/3;object-fit:cover;width:100%}
+.reason p{font-size:15px}
+.reason + .reason{border-top:1px solid var(--line);padding-top:30px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.split img{aspect-ratio:1/1}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mosaic img{aspect-ratio:1/1;object-fit:cover;border-radius:6px;width:100%}
+
+/* Product block */
+.gallery{display:flex;flex-direction:column;gap:8px}
+.gmain{position:relative;background:#fff;border-radius:var(--r);overflow:hidden}
+.gmain img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:18px;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.gnav.prev{left:10px}.gnav.next{right:10px}
+.thumbs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.thumbs button{flex:0 0 64px;border:2px solid transparent;border-radius:6px;padding:0;background:#fff;overflow:hidden}
+.thumbs button[aria-current="true"]{border-color:var(--espresso)}
+.thumbs img{aspect-ratio:4/3;object-fit:cover;width:100%}
+
+.picker{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.field legend,.flabel{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0;margin-bottom:8px}
+.field legend span,.flabel span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);padding:0}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--espresso)}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.opt{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:10px 4px;font-weight:600;font-size:15px;color:var(--ink);line-height:1.15}
+.opt small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.opt[aria-pressed="true"]{background:var(--espresso);border-color:var(--espresso);color:#fff}
+.opt[aria-pressed="true"] small{color:#DCCFC3}
+.foam{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sizehint{background:var(--sand);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--muted)}
+.sizehint b{color:var(--ink)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px}
+.checks li::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--good) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;margin-top:2px}
+.assure{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.assure div{display:flex;gap:10px;align-items:center}
+.assure svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.6;flex:none}
+
+/* Offer card */
+.offer{background:var(--paper);border:1.5px solid var(--espresso);border-radius:var(--r);overflow:hidden}
+.offer-flag{background:var(--espresso);color:#fff;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px}
+.offer-body{padding:18px;display:flex;flex-direction:column;gap:14px}
+.offer-title{font-family:var(--font-display);font-size:24px;font-weight:500}
+.offer-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.offer-img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;background:#fff;width:100%}
+.lines{list-style:none;margin:0;padding:0;font-size:14px}
+.lines li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.lines li span:first-child{min-width:0}
+.lines s{color:var(--muted);margin-right:6px}
+.lines .tag{color:var(--good);font-weight:700;white-space:nowrap}
+.lines .inc{color:var(--muted);font-style:italic;white-space:nowrap}
+.pricebox{background:var(--caramel-soft);border-radius:8px;padding:18px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.pricebox .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.pricebox .big{font-family:var(--font-display);font-size:46px;font-weight:500;line-height:1.05}
+.pricebox s{color:var(--muted)}
+.pricebox .save{color:var(--good);font-weight:700;font-size:14px}
+.pricebox .codeline{font-size:13px}
+.urgent{border:1px solid #E7C2B9;background:#FBF0EC;border-radius:8px;padding:10px;text-align:center;font-size:13px;color:var(--alert)}
+.secure{font-size:12px;color:var(--muted);text-align:center}
+.alt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+.alt .row{display:flex;justify-content:space-between;font-size:14px;gap:10px}
+.btn--ghost{background:transparent;border:1px solid var(--espresso);color:var(--espresso)}
+
+/* Reviews */
+.summary{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.summary .score{font-family:var(--font-display);font-size:38px;line-height:1}
+.summary p{font-size:13px;color:var(--muted)}
+.rv{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.rv-v{background:var(--good);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:7px}
+.rv-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 0;gap:10px}
+.rv-h b{font-size:15px}
+.rv-h small{display:block;font-size:12px;color:var(--muted);font-style:italic}
+.rv-media{margin-top:12px}  /* Hier optional eigene Screenshots einsetzen: <img src="..." alt="..."> */
+.rv-media:empty{display:none}
+.rv-media img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.rv-b{padding:12px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.rv-b h3{font-family:var(--font-body);font-size:16px;font-weight:700}
+.rv-b p{font-size:14px;color:#4A3E37}
+.more[hidden]{display:none!important}
+
+/* Size finder */
+.finder{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px}
+.finder input[type=range]{width:100%;accent-color:var(--caramel)}
+.finder output{font-family:var(--font-display);font-size:28px}
+.measure{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px}
+.measure div{background:var(--sand);border-radius:8px;padding:10px}
+.measure b{display:block;font-size:15px}
+.facts{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:6px 16px}
+.fact{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:14px 0;font-size:14px}
+.fact + .fact{border-top:1px solid var(--line)}
+.fact i{width:36px;height:36px;border-radius:50%;background:var(--caramel);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-family:var(--font-display)}
+
+/* Compare */
+.tablewrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:340px}
+th,td{padding:12px 8px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+th:first-child,td:first-child{text-align:left;font-weight:600;width:30%}
+thead th{font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.col-us{background:var(--caramel-soft)}
+thead .col-us{background:var(--caramel);color:#fff;font-family:var(--font-display);font-size:15px;letter-spacing:0;text-transform:none}
+td.col-us b{display:block}
+td small{display:block;color:var(--muted);font-size:11px}
+tr:last-child td{border-bottom:0}
+
+/* Guarantee + FAQ */
+.guarantee{text-align:center;align-items:center}
+.seal{width:60px;height:60px;border-radius:50%;background:var(--caramel-soft);display:flex;align-items:center;justify-content:center}
+.seal svg{width:28px;height:28px;stroke:var(--espresso);fill:none;stroke-width:1.6}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:16px 28px 16px 0;font-weight:600;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:20px;font-weight:400;color:var(--muted)}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px;font-size:15px;color:#4A3E37}
+footer{background:var(--espresso);color:#CDBFB2;text-align:center;font-size:12px;padding:28px max(16px,env(safe-area-inset-right,0px)) 28px max(16px,env(safe-area-inset-left,0px))}
+footer .logo{color:#fff;display:block;margin-bottom:8px}
+footer a{color:#CDBFB2}
+
+/* Sticky CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transform:translateY(110%);transition:transform .25s ease}
+.sticky.on{transform:none}
+.sticky .wrap{flex-direction:row;align-items:center;gap:12px}
+.sticky .p{min-width:0;line-height:1.2}
+.sticky .p b{font-size:18px;font-variant-numeric:tabular-nums}
+.sticky .p small{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky .btn{width:auto;flex:1;padding:14px 12px;font-size:13px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:30}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER + CODE-COUNTDOWN ========== -->
+<div class="topbar"><span class="logo">SABRO</span></div>
+<div class="codebar" role="note">
+  <div class="wrap">
+    <div><b>Code <span class="js-code">RELAX5</span> aktiv</b><span>Nur noch heute einlösbar</span></div>
+    <div class="timer" aria-label="Verbleibende Zeit">
+      <div><strong id="t-h">00</strong><small>Std</small></div>
+      <div><strong id="t-m">00</strong><small>Min</small></div>
+      <div><strong id="t-s">00</strong><small>Sek</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="band band--dark">
+  <div class="wrap">
+    <div class="pill">Über 500.000 Hunde schlafen seit 1995 auf einem KUDDE</div>
+    <h1>Das Hundebett, in dem sich dein Hund <em class="hl">endlich ganz ausstreckt.</em></h1>
+    <p class="hero-sub">All-in Relax Bundle: <b>KUDDE Hundebett</b> + <b>MJUCK Einlage</b> + <b>MJUCKIS Kissen</b></p>
+
+    <div class="codecard">
+      <p>Dein exklusiver Code für das komplette Set. <b>Er wird an der Kasse automatisch abgezogen</b>, du musst nichts eintippen.</p>
+      <div class="coderow">
+        <div class="code js-code" id="hero-code">RELAX5</div>
+        <button class="copy" type="button" data-copy>Kopieren</button>
+      </div>
+      <p class="small" style="color:#CDBFB2"><span class="js-amt">5</span>&nbsp;€ extra Rabatt auf den Bundle-Preis, der schon bis zu <span class="js-maxsave">80</span>&nbsp;€ unter dem Einzelkauf liegt.</p>
+    </div>
+
+    <div class="duo">
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3791Shop.jpg?v=1773914448&width=700" alt="Hund im KUDDE in sahara" width="700" height="933" fetchpriority="high">
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/O8B9960-Kopie-min.jpg?v=1773916340&width=700" alt="Hund im KUDDE in chocolate" width="700" height="933">
+    </div>
+
+    <ul class="benefits">
+      <li><svg viewBox="0 0 24 24"><path d="M3 15h18M5 15V9a2 2 0 012-2h10a2 2 0 012 2v6M3 15v3M21 15v3"/></svg><span><b>Rechteckig &amp; orthopädisch:</b> Die Wirbelsäule streckt sich in ihrer natürlichen Länge aus</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 17c3-6 13-6 16 0M4 13c3-4 13-4 16 0"/></svg><span><b>Formstabiler Schaumkern:</b> kein Durchliegen, 10 Jahre Garantie</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3v4M5 8l2.5 2.5M19 8l-2.5 2.5M4 20h16M7 20a5 5 0 0110 0"/></svg><span><b>Hoher Rand zum Anlehnen</b>, nachempfunden der Kuhle, die sich Wölfe buddeln</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 7 6 11a6 6 0 01-12 0c0-4 3-7 6-11z"/></svg><span><b>Feucht abwischbar:</b> Kunstleder, ideal für Allergiker</span></li>
+      <li><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M4 10h16M4 14h16"/></svg><span><b>Weiche Breitcord-Einlage + Kissen</b>, farblich aufs Bett abgestimmt</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg><span><b>100 Tage Probeschlafen</b> für das KUDDE Hundebett</span></li>
+    </ul>
+
+    <a class="btn btn--light" href="#angebot">Zum Angebot →</a>
+    <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,86 / 5 · 536 Bewertungen auf Reviews.io</div>
+
+    <div class="trust">
+      <div><b>1995</b><span>KUDDE seit über 30 Jahren</span></div>
+      <div><b>10 Jahre</b><span>Garantie auf den Schaumkern</span></div>
+      <div><b>100 Tage</b><span>Probeschlafen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KURZE STIMMEN ========== -->
+<section class="band">
+  <div class="wrap">
+    <h2>Was Hundehalter nach der <em class="mark">ersten Nacht</em> erzählen</h2>
+    <p class="lead">Echte Bewertungen von Kundinnen und Kunden, die das KUDDE oder das All-in Relax Bundle gekauft haben.</p>
+    <div class="qgrid">
+      <div class="qcard"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=500" alt="Hund im KUDDE in brombeer" loading="lazy"><div><b>Sonja, Mischlingshündin (8)</b><p>„Sie lag sofort in ihrem neuen Bett, ausgestreckt, vollkommen relaxt.“</p></div></div>
+      <div class="qcard"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4570Shop.jpg?v=1773916340&width=500" alt="Hund im KUDDE in schwarz" loading="lazy"><div><b>Robin, Tierschutzhündin</b><p>„Schon am zweiten Tag ist sie darin zur Ruhe gekommen.“</p></div></div>
+      <div class="qcard"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A2865Shop.jpg?v=1773916340&width=500" alt="Hund im KUDDE in zartbitter" loading="lazy"><div><b>Torsten, Ridgebacks</b><p>„Nach sage und schreibe 26 Jahren haben wir unsere erste Kudde ersetzen müssen.“</p></div></div>
+      <div class="qcard"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/MjuckPearlSofa.jpg?v=1757405427&width=500" alt="MJUCK Einlage auf dem Sofa" loading="lazy"><div><b>Tanja, Jack Russell (13)</b><p>„Lag den ganzen Tag in ihrem neuen Bett anstatt auf der Couch.“</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6 GRÜNDE ========== -->
+<section class="band band--paper">
+  <div class="wrap">
+    <span class="eyebrow">Warum es funktioniert</span>
+    <h2>6 Gründe, warum das KUDDE <em class="mark">seit 1995 nicht ersetzt</em> wird</h2>
+
+    <article class="reason">
+      <span class="no">– 01</span>
+      <h3>Ausgestreckt statt <em class="hl">zusammengerollt</em></h3>
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Sabro_Kudde_2.Kopiejpg.jpg?v=1762963965&width=1000" alt="Hund liegt ausgestreckt im KUDDE" loading="lazy">
+      <p>Runde Körbchen zwingen den Hund in eine gekrümmte Haltung. <b>Die rechteckige Form des KUDDE lässt die Wirbelsäule in ihrer natürlichen Länge ausstrecken.</b> Nur ein Bett, das diese anatomische Anforderung erfüllt, kann wirklich orthopädisch sein.</p>
+    </article>
+
+    <article class="reason">
+      <span class="no">– 02</span>
+      <h3>Ein Kern, der <em class="hl">nicht durchgelegen</em> wird</h3>
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_stone.png?v=1786374626&width=1000" alt="All-in Relax Bundle in stone freigestellt" loading="lazy">
+      <p>Der druckentlastende Schaumkern passt sich den Konturen des Körpers an und verteilt das Gewicht gleichmäßig. <b>Er bleibt dauerhaft formstabil, darauf geben wir 10 Jahre Garantie.</b> Jede Größe hat eine eigene Schaumstoffdichte, abgestimmt auf Größe und Gewicht des Hundes.</p>
+    </article>
+
+    <article class="reason">
+      <span class="no">– 03</span>
+      <h3>Ein Rand wie eine <em class="hl">selbst gebuddelte Kuhle</em></h3>
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4189Shop.jpg?v=1773916340&width=1000" alt="Hund legt den Kopf auf den Rand des KUDDE" loading="lazy">
+      <p>Der 15&nbsp;cm hohe Rand lädt zum Kopfablegen ein und gibt Halt und Geborgenheit, wie die Kuhle, die sich Wölfe buddeln. Gerade unsichere oder ältere Hunde finden hier schnell ihren Rückzugsort.</p>
+    </article>
+
+    <article class="reason">
+      <span class="no">– 04</span>
+      <h3>Einmal abwischen, <em class="hl">fertig</em></h3>
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A5704Shop.jpg?v=1773916340&width=1000" alt="Hund im KUDDE in brombeer" loading="lazy">
+      <p>Der robuste Kunstlederbezug lässt sich feucht abwischen. <b>Flöhe, Milben und andere ungebetene Gäste finden keine Verstecke</b>, deshalb ist das KUDDE ideal für allergische Hunde. Die Unterseite isoliert die Liegefläche, auch bei Fußbodenheizung.</p>
+    </article>
+
+    <article class="reason">
+      <span class="no">– 05</span>
+      <h3>Dazu das Weichste: <em class="hl">MJUCK Einlage &amp; MJUCKIS Kissen</em></h3>
+      <div class="split">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AH5A6551.jpg?v=1739970843&width=600" alt="MJUCK Einlage aus Breitcord" loading="lazy" style="border-radius:var(--r);object-fit:cover">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/KuschelkissenMUCKISsilk.jpg?v=1740671404&width=600" alt="MJUCKIS Kuschelkissen aus Breitcord" loading="lazy" style="border-radius:var(--r);object-fit:cover">
+      </div>
+      <p>Die <b>MJUCK Einlage</b> aus weichem Breitcord ist passgenau für das KUDDE geschnitten, waschbar und trocknergeeignet. Das <b>MJUCKIS Kissen</b> (40&nbsp;×&nbsp;40&nbsp;cm) ist mit formbeständigen Faserkügelchen gefüllt, hat einen abnehmbaren Bezug und einen wasserabweisenden Schutzbezug.</p>
+    </article>
+
+    <article class="reason">
+      <span class="no">– 06</span>
+      <h3>Über <em class="hl">500.000 Hunde</em> liegen schon darin</h3>
+      <div class="mosaic">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3875_Shop_50697822-843c-4839-ac90-1baca1f8810b.jpg?v=1773916340&width=400" alt="Hund im KUDDE zartbitter" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Sabro_250821_30412_2_6ef86fc4-8a5c-4ec5-9d28-4b22fdbcffd2.jpg?v=1758632079&width=400" alt="Hund im KUDDE moon" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AH5A6764.jpg?v=1757405408&width=400" alt="MJUCK Einlage caramel" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/KuschelkissenMJUCKIScaramel_2.jpg?v=1740671378&width=400" alt="MJUCKIS Kissen caramel" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Sabro_250821_25050.jpg?v=1758634028&width=400" alt="Hund im KUDDE" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AH5A6662.jpg?v=1757405408&width=400" alt="MJUCK Einlage pearl" loading="lazy">
+      </div>
+      <p>Seit 1995 entwickelt SABRO das KUDDE in Rosengarten bei Hamburg weiter. <b>Viele Kundinnen und Kunden kaufen ihr zweites, drittes oder sechstes KUDDE</b> für weitere Räume oder den nächsten Hund.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ========== PRODUKT / KONFIGURATOR ========== -->
+<section class="band" id="produkt">
+  <div class="wrap">
+    <h2>All-in Relax <em class="hl">Bundle</em></h2>
+    <p class="lead" style="font-family:var(--font-display);font-style:italic">KUDDE Hundebett + MJUCK Einlage + MJUCKIS Kissen, farblich aufeinander abgestimmt</p>
+
+    <div class="gallery">
+      <div class="gmain">
+        <img id="g-img" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_sahara.png?v=1786374626&width=1100" alt="All-in Relax Bundle" width="1100" height="825">
+        <button class="gnav prev" type="button" aria-label="Vorheriges Bild" id="g-prev">‹</button>
+        <button class="gnav next" type="button" aria-label="Nächstes Bild" id="g-next">›</button>
+      </div>
+      <div class="thumbs" id="g-thumbs"></div>
+    </div>
+
+    <div class="picker">
+      <fieldset class="field">
+        <legend>Farbe: <span id="lbl-color">sahara</span></legend>
+        <div class="swatches" id="sw"></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Größe: <span id="lbl-size">L (80 × 100 cm)</span></legend>
+        <div class="sizes" id="sizes"></div>
+        <div class="sizehint" id="sizehint"></div>
+        <a href="#groesse" class="small">Unsicher? Zum Größenfinder ↓</a>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Schaumstoff</legend>
+        <div class="foam" id="foam"></div>
+      </fieldset>
+
+      <ul class="checks">
+        <li><span><b>Orthopädisches KUDDE Hundebett</b> aus robustem, abwischbarem Kunstleder</span></li>
+        <li><span><b>MJUCK Einlage</b> aus Breitcord, passgenau zum KUDDE, waschbar &amp; trocknergeeignet</span></li>
+        <li><span><b>MJUCKIS Kuschelkissen</b> 40 × 40 cm mit wasserabweisendem Schutzbezug</span></li>
+        <li><span><b>10 Jahre Garantie</b> auf die Formstabilität des Schaumkerns</span></li>
+        <li><span><b>Allergikerfreundlich:</b> alle Teile aus hochwertigen Materialien</span></li>
+      </ul>
+
+      <a class="btn btn--go js-buy" href="#">Mit Code <span class="js-code">RELAX5</span> sichern →</a>
+      <div class="assure">
+        <div><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4 M12 11v10"/></svg>Versand durch SABRO aus Deutschland</div>
+        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>100 Tage Probeschlafen für das KUDDE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DAS ANGEBOT ========== -->
+<section class="band band--tint" id="angebot">
+  <div class="wrap">
+    <h2 style="text-align:center"><em class="hl">Dein Angebot</em></h2>
+    <div class="offer">
+      <div class="offer-flag">Das Komplett-Set · mit deinem Code</div>
+      <div class="offer-body">
+        <div>
+          <div class="offer-title">All-in Relax Bundle</div>
+          <div class="offer-meta js-variant-meta">sahara · L (80 × 100 cm) · Standard</div>
+        </div>
+        <img class="offer-img js-offer-img" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_sahara.png?v=1786374626&width=900" alt="All-in Relax Bundle" loading="lazy">
+        <ul class="lines num">
+          <li><span>KUDDE Hundebett</span><span class="js-p-kudde">189,90 €</span></li>
+          <li><span>+ MJUCK Einlage</span><span class="js-p-mjuck">64,90 €</span></li>
+          <li><span>+ MJUCKIS Kissen</span><span class="js-p-kissen">39,90 €</span></li>
+          <li><span>Bundle-Vorteil</span><span class="tag js-p-bundle">−70,00 €</span></li>
+          <li><span>+ Code <span class="js-code">RELAX5</span></span><span class="tag js-p-code">−5,00 €</span></li>
+          <li><span>+ 100 Tage Probeschlafen</span><span class="inc">inklusive</span></li>
+        </ul>
+        <div class="pricebox">
+          <span class="lbl">Dein Preis heute</span>
+          <span class="big num js-p-final">219,80 €</span>
+          <s class="num js-p-compare">294,70 €</s>
+          <span class="save num js-p-save">Du sparst 74,90 € (−25 %)</span>
+          <span class="codeline">Code <b class="js-code">RELAX5</b> wird automatisch angewendet</span>
+        </div>
+        <div class="urgent">Der Code gilt nur noch heute · <b class="num" id="t-inline">00:00:00</b></div>
+        <a class="btn btn--dark js-buy" href="#">Angebot sichern →</a>
+        <p class="secure">🔒 Du wirst sicher zur SABRO-Kasse weitergeleitet</p>
+      </div>
+    </div>
+
+    <div class="alt">
+      <div class="offer-title" style="font-size:19px">Nur das KUDDE Hundebett</div>
+      <div class="row"><span>Ohne MJUCK Einlage &amp; MJUCKIS Kissen</span><span class="num js-p-kudde">189,90 €</span></div>
+      <a class="btn btn--ghost" href="https://sabro.de/products/hundebett-kudde">Einzeln ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS (hier können eigene Screenshots in .rv-media eingesetzt werden) ========== -->
+<section class="band band--paper">
+  <div class="wrap">
+    <h2>Über 500 Bewertungen aus <em class="mark">unserer Community</em></h2>
+    <div class="summary">
+      <div class="score num">4,86</div>
+      <div><div class="stars" aria-hidden="true">★★★★★</div><p>536 Bewertungen für das KUDDE · All-in Relax Bundle 4,91 / 5 (33 Bewertungen) · Quelle: Reviews.io</p></div>
+    </div>
+
+    <article class="rv">
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Sonja Schäfer</b><small>Mischlingshündin, 8 Jahre · KUDDE L</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Ich würde sagen, das war ein Volltreffer!“</h3><p>Meine Hündin hatte ein Bett, aber das schien ihr nicht zu gefallen, sehr oft lag sie daneben oder auf den Fliesen. Was soll ich sagen, sie lag sofort in ihrem neuen Bett, ausgestreckt, vollkommen relaxt und jetzt schläft sie! Ich habe heute gleich nochmal bestellt in Größe S für meinen zweiten Hund.</p></div>
+    </article>
+
+    <article class="rv">
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Jennifer</b><small>All-in Relax Bundle</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Einfach perfekt.“</h3><p>Gestern bestellt, heute geliefert. Das Hundebett ist der Hammer, toll verarbeitet, einfach zusammenzubauen und anscheinend sehr bequem. Mit der Decke und dem Kissen sieht es sehr gemütlich aus.</p></div>
+    </article>
+
+    <article class="rv">
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Robin</b><small>Hündin aus dem Tierschutz</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Es scheint ihr Sicherheit zu geben.“</h3><p>Sie hat bislang nur auf dem harten Boden geschlafen und ist bei einigen neuen Sachen noch sehr verängstigt. Das Kudde Hundebett scheint ihr jedoch eine gewisse Sicherheit zu geben, denn bereits am zweiten Tag ist sie darin zur Ruhe gekommen und seitdem sucht sie den Komfort dort.</p></div>
+    </article>
+
+    <article class="rv">
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Torsten</b><small>Ridgebacks</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Wenn das keine Aussage über die Qualität ist!“</h3><p>Nach sage und schreibe 26 Jahren haben wir unsere erste Sabro-Kudde ersetzen müssen. Unsere Ridgebacks haben sie geliebt und werden mit der neuen Kudde und der passenden Spezialeinlage genauso zufrieden sein. Tolles Material und Verarbeitung, einfach genial!</p></div>
+    </article>
+
+    <article class="rv more" hidden>
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Sabrina</b><small>All-in Relax Bundle in sahara</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Passt super in mein Wohnzimmer.“</h3><p>Ein optisch wirklich schönes Bett. Das Saharabeige passt super in mein Wohnzimmer. Der Kunstlederbezug ist abwaschbar, austauschbar und fühlt sich gut an. Die Einlage ist mega kuschelig und das Kissen in hochwertiger Qualität.</p></div>
+    </article>
+
+    <article class="rv more" hidden>
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Tanja</b><small>Jack-Russell-Dame, 13 Jahre</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Sieht in echt viel schöner aus als auf den Bildern.“</h3><p>Ich bin begeistert vom Design und der Qualität des Produktes. Meine 13-jährige Jackrusseldame nahm es sofort in Beschlag und lag den ganzen Tag in ihrem neuen Bett anstatt auf der Couch wie üblich.</p></div>
+    </article>
+
+    <article class="rv more" hidden>
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Anonym</b><small>Labradorhündin, 10 Jahre</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Das Aufstehen fällt ihr deutlich leichter.“</h3><p>Meine 10-jährige Labradorhündin nimmt es super an. Das Aufstehen und Aussteigen aus dem Bett fällt ihr deutlich leichter als auf weicheren Kissen. Das Bett lässt sich super reinigen und die mitgelieferte Auflage ist super flauschig.</p></div>
+    </article>
+
+    <article class="rv more" hidden>
+      <div class="rv-v">✓ Verifizierter Kauf</div>
+      <div class="rv-h"><div><b>Franziska Bauknecht</b><small>KUDDE mit MJUCK Einlage</small></div><span class="stars">★★★★★</span></div>
+      <div class="rv-media"></div>
+      <div class="rv-b"><h3>„Gar nicht mehr rauszukriegen.“</h3><p>Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.</p></div>
+    </article>
+
+    <button class="btn btn--ghost" type="button" id="more-rv">Weitere Bewertungen anzeigen</button>
+    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
+  </div>
+</section>
+
+<!-- ========== GRÖSSENFINDER ========== -->
+<section class="band" id="groesse">
+  <div class="wrap">
+    <span class="eyebrow">Die richtige Größe</span>
+    <h2>Warum die Größe über guten Schlaf entscheidet</h2>
+    <div class="facts">
+      <div class="fact"><i>1</i><p><b>Miss deinen Hund von der Nasenspitze bis zum Rutenansatz.</b> Dieses Maß sollte die Liegefläche nicht überschreiten.</p></div>
+      <div class="fact"><i>2</i><p><b>Lieber nicht zu klein wählen.</b> Dein Hund muss sich der Rückenlänge nach komplett ausstrecken können, um rückenschonend zu schlafen.</p></div>
+      <div class="fact"><i>3</i><p><b>Jede Größe hat ihre eigene Schaumstoffdichte</b>, passend zu Größe und Gewicht. Rand immer 15&nbsp;cm, Bodenplatte immer 5&nbsp;cm.</p></div>
+    </div>
+
+    <div class="finder">
+      <label class="flabel" for="kg">Wie schwer ist dein Hund? <span>(Richtwert)</span></label>
+      <output id="kg-out" for="kg">25 kg</output>
+      <input type="range" id="kg" min="2" max="80" value="25" step="1">
+      <div class="sizehint" id="finder-res"></div>
+      <div class="measure num" id="finder-measure"></div>
+      <button class="btn btn--dark" type="button" id="finder-apply">Diese Größe übernehmen</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VERGLEICH ========== -->
+<section class="band band--paper">
+  <div class="wrap">
+    <span class="eyebrow" style="text-align:center">Zusammengefasst</span>
+    <h2 style="text-align:center">Deshalb schlafen <em class="mark">500.000 Hunde</em> auf einem KUDDE</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th class="col-us">KUDDE</th><th>Typisches Hundekissen</th></tr></thead>
+        <tbody>
+          <tr><td>Liegeform</td><td class="col-us"><b>rechteckig</b><small>Wirbelsäule gestreckt</small></td><td>oft rund<small>Hund liegt eingerollt</small></td></tr>
+          <tr><td>Kern</td><td class="col-us"><b>formstabiler Schaum</b><small>10 Jahre Garantie</small></td><td>Füllwatte<small>liegt sich platt</small></td></tr>
+          <tr><td>Reinigung</td><td class="col-us"><b>abwischen</b><small>Einlage waschbar</small></td><td>ganzen Bezug waschen</td></tr>
+          <tr><td>Allergiker</td><td class="col-us"><b>geeignet</b><small>keine Verstecke für Milben</small></td><td>Stoff sammelt Haare &amp; Milben</td></tr>
+          <tr><td>Fußbodenheizung</td><td class="col-us"><b>isolierte Unterseite</b></td><td>selten bedacht</td></tr>
+          <tr><td>Bezug tauschbar</td><td class="col-us"><b>ja</b><small>viele Farben &amp; Stoffe</small></td><td>meist nicht</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="text-align:center;font-style:italic">Vergleich mit gängigen Füllwatte-Hundekissen, nicht mit einem bestimmten Anbieter.</p>
+    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
+  </div>
+</section>
+
+<!-- ========== FINALES ANGEBOT ========== -->
+<section class="band band--dark">
+  <div class="wrap">
+    <span class="eyebrow">Bereit für ruhige Nächte?</span>
+    <h2>Dein Code gilt <em class="hl">nur noch heute</em></h2>
+    <div class="codecard">
+      <div class="coderow">
+        <div class="code js-code">RELAX5</div>
+        <button class="copy" type="button" data-copy>Kopieren</button>
+      </div>
+      <p class="num"><b class="js-variant-meta">sahara · L (80 × 100 cm) · Standard</b><br>statt <s class="js-p-compare">294,70 €</s> nur <b class="js-p-final" style="font-size:20px">219,80 €</b></p>
+    </div>
+    <a class="btn btn--light js-buy" href="#">Jetzt All-in Relax Bundle sichern →</a>
+    <a class="small" href="#produkt" style="color:#CDBFB2;text-align:center">Farbe oder Größe ändern</a>
+  </div>
+</section>
+
+<!-- ========== GARANTIE ========== -->
+<section class="band">
+  <div class="wrap guarantee">
+    <div class="seal"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <h2>100 Tage Probeschlafen</h2>
+    <p class="lead">Du und deine Fellnase könnt das KUDDE Hundebett 100 Tage lang in Ruhe testen. Passt es nicht, schickst du es zurück. Martin Rütter und wir sind überzeugt, dass es niemand zurückgeben wird.</p>
+    <p class="small">Die 100-Tage-Garantie gilt für das KUDDE Hundebett. Einlage und Kissen fallen unter die 14-tägige Widerrufsfrist (originalverpackt und unbenutzt).</p>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="band band--paper">
+  <div class="wrap" style="gap:0">
+    <span class="eyebrow" style="margin-bottom:6px">Häufige Fragen</span>
+    <h2 style="margin-bottom:10px">FAQ</h2>
+    <details><summary>Wie löse ich den Code ein?</summary><p>Gar nicht, das passiert automatisch. Über die Buttons auf dieser Seite landest du mit deinem gewählten Bundle direkt im Warenkorb, der Code <b class="js-code">RELAX5</b> ist dort bereits hinterlegt. Falls du doch über den Shop bestellst, gib ihn einfach an der Kasse ein.</p></details>
+    <details><summary>Welche Größe brauche ich?</summary><p>Miss deinen Hund von der Nasenspitze bis zum Rutenansatz. Die Liegefläche sollte mindestens so lang sein. Richtwerte: S bis 10 kg, M bis 15 kg, L bis 30 kg, XL bis 50 kg, XXL ab 50 kg. Im Zweifel lieber eine Größe größer.</p></details>
+    <details><summary>Was genau ist im Bundle enthalten?</summary><p>Das orthopädische KUDDE Hundebett mit Kunstlederbezug, die passende MJUCK Einlage aus Breitcord und das MJUCKIS Kuschelkissen (40 × 40 cm) mit wasserabweisendem Schutzbezug.</p></details>
+    <details><summary>Kann ich die Farbe von Einlage und Kissen wählen?</summary><p>Die Sets sind farblich aufeinander abgestimmt. Einlage und Kissen kommen passend zur gewählten Kunstlederfarbe, in der Regel wie im Produktfoto. Bei Nichtverfügbarkeit behalten wir uns eine alternative Farbe vor.</p></details>
+    <details><summary>Was ist bei Größe XXL anders?</summary><p>Bei XXL bekommst du die XL-Breitcordeinlage, damit du sie noch problemlos in deiner Waschmaschine waschen kannst. Sie liegt auf der Liegefläche, ohne am Rand hochzustehen.</p></details>
+    <details><summary>Wie reinige ich das Bett?</summary><p>Den Kunstlederbezug wischst du einfach feucht ab. Die MJUCK Einlage ist waschbar und trocknergeeignet, der Bezug des MJUCKIS Kissens ist abnehmbar und waschbar.</p></details>
+    <details><summary>Kann ich zurückgeben, wenn es meinem Hund nicht gefällt?</summary><p>Ja. Für das KUDDE Hundebett gilt die 100-Tage-Geld-zurück-Garantie. Einlage und Kissen kannst du innerhalb von 14 Tagen originalverpackt und unbenutzt zurückgeben. Gibst du das KUDDE erst nach 14 Tagen zurück, wird der Originalpreis der Bundle-Artikel von der Erstattung abgezogen.</p></details>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">SABRO</span>
+  SABRO GmbH · Kirchenstr. 16 · 21224 Rosengarten<br>
+  <a href="https://sabro.de/policies/legal-notice">Impressum</a> · <a href="https://sabro.de/policies/privacy-policy">Datenschutz</a> · <a href="https://sabro.de/policies/terms-of-service">AGB</a>
+</footer>
+
+<!-- Sticky CTA (mobil) -->
+<div class="sticky" id="sticky">
+  <div class="wrap">
+    <div class="p"><b class="js-p-final">219,80 €</b><small class="js-variant-meta">sahara · L · Standard</small></div>
+    <a class="btn btn--go js-buy" href="#">Mit Code sichern →</a>
+  </div>
+</div>
+
+<script>
+/* ===== Angebots-Konfiguration: hier Code & Rabatt anpassen ===== */
+const OFFER = {
+  code: "RELAX5",           // Rabattcode, muss in Shopify angelegt sein
+  amount: 5,                // fester Extra-Rabatt in € auf den Bundle-Preis
+  shop: "https://sabro.de", // Shop-Domain für den Warenkorb-Link
+  defaults: { color: "sahara", size: "L", foam: "Standard" }
+};
+
+const CDN = "https://cdn.shopify.com/s/files/1/0845/7512/5802/files/";
+const COLORS = {
+  stone:     { hex:"#9B958B", imgs:["AllinRelaxBundle_Freisteller_stone.png?v=1786374626","AllinRelaxBundle_stone_Fullshot_Malinois_Milieu_2.png?v=1786372327","AllinRelaxBundle_stone_Fullshot_Malinois_Milieu.png?v=1786372327"] },
+  moon:      { hex:"#CBC7C0", imgs:["AllinRelaxBundle_Freisteller_moon.png?v=1786374626","AllinRelaxBundle_moon_Fullshot_Malinois_Milieu_2.png?v=1786372328","AllinRelaxBundle_moon_Fullshot_Aussie_Milieu.png?v=1786373021"] },
+  chocolate: { hex:"#5B3C2D", imgs:["AllinRelaxBundle_Freisteller_chocolate.png?v=1786374626","AllinRelaxBundle_chocolate_Closeup_Malinois_Milieu.png?v=1786372327","AllinRelaxBundle_chocolate_Fullshot_EnglischSetter_Milieu.png?v=1786372328"] },
+  sahara:    { hex:"#D9C4A6", imgs:["AllinRelaxBundle_Freisteller_sahara.png?v=1786374626","AllinRelaxBundle_sahara_Fullshot_Aussie_Milieu.png?v=1786372327","AllinRelaxBundle_sahara_Fullshot_BorderCollie_Milieu.png?v=1786372328","AllinRelaxBundle_sahara_Fullshot_Malinois_Milieu.png?v=1786372327"] },
+  schwarz:   { hex:"#232120", imgs:["AllinRelaxBundle_Freisteller_schwarz.png?v=1786374626","AllinRelaxBundle_schwarz_Fullshot_Aussie_Milieu.png?v=1786372327","AllinRelaxBundle_schwarz_Fullshot_BorderCollie_Milieu.png?v=1786372327","AllinRelaxBundle_schwarz_Fullshot_Malinois_Milieu.png?v=1786372328"] },
+  zartbitter:{ hex:"#47362E", imgs:["AllinRelaxBundle_Freisteller_zartbitter.png?v=1786374626","AllinRelaxBundle_Zartbitter_Fullshot_EnglishSettler_Milieu.png?v=1786372328","All_in_Relax_Bundle_Zartbitter_Full_shot_Border_Collie_Milieu.png?v=1786373603"] },
+  brombeer:  { hex:"#5A2D3B", imgs:["AllinRelaxBundle_Freisteller_brombeer.png?v=1786374626","AllinRelaxBundle_brombeer_Fullshot_BorderCollie_Milieu.png?v=1786372328","AllinRelaxBundle_bombeer_Fullshot_Malinois_Milieu.png?v=1786372328"] }
+};
+/* Preise aus Shopify (Bundle-Preis / Vergleichspreis = Summe Einzelpreise) */
+const SIZES = {
+  S:  { label:"S (60 × 70 cm)",   outer:"60 × 70 cm",   lie:"40 × 50 cm",  kg:"bis 10 kg", max:10, breeds:"Jack Russell, Malteser, Zwergpinscher, Zwergdackel", mjuck:44.90,
+        Standard:{p:159.80,c:209.70}, Special:{p:184.80,c:234.70} },
+  M:  { label:"M (70 × 85 cm)",   outer:"70 × 85 cm",   lie:"50 × 65 cm",  kg:"bis 15 kg", max:15, breeds:"Dackel, Beagle, Sheltie, Zwergpudel, Westie", mjuck:54.90,
+        Standard:{p:194.80,c:254.70}, Special:{p:214.80,c:274.70} },
+  L:  { label:"L (80 × 100 cm)",  outer:"80 × 100 cm",  lie:"60 × 80 cm",  kg:"bis 30 kg", max:30, breeds:"Australian Shepherd, Border Collie, Lagotto, Kleiner Münsterländer", mjuck:64.90,
+        Standard:{p:224.80,c:294.70}, Special:{p:234.80,c:304.70} },
+  XL: { label:"XL (100 × 120 cm)",outer:"100 × 120 cm", lie:"80 × 100 cm", kg:"bis 50 kg", max:50, breeds:"Labrador, Golden Retriever, Schäferhund, Vizsla, Boxer", mjuck:74.90,
+        Standard:{p:254.80,c:334.70}, Special:{p:284.80,c:364.70} },
+  XXL:{ label:"XXL (117 × 150 cm)",outer:"117 × 150 cm",lie:"97 × 130 cm", kg:"ab 50 kg",  max:999, breeds:"Bernhardiner, Leonberger, Neufundländer, Irischer Wolfshund", mjuck:74.90,
+        Standard:{p:304.80,c:384.70}, Special:{p:334.80,c:414.70} }
+};
+const KISSEN = 39.90;
+/* Shopify-Varianten-IDs: Farbe|Größe|Schaum */
+const V = {
+"stone|S|Standard":55400992670076,"stone|S|Special":55400994242940,"stone|M|Standard":55400995717500,"stone|M|Special":55400998109564,"stone|L|Standard":55400999944572,"stone|L|Special":55401002828156,"stone|XL|Standard":55401004695932,"stone|XL|Special":55401004859772,"stone|XXL|Standard":55401005089148,"stone|XXL|Special":55400992833916,
+"moon|S|Standard":55400992899452,"moon|S|Special":55400992932220,"moon|M|Standard":55400993030524,"moon|M|Special":55400993096060,"moon|L|Standard":55400993489276,"moon|L|Special":55400993620348,"moon|XL|Standard":55400993685884,"moon|XL|Special":55400994079100,"moon|XXL|Standard":55400994144636,"moon|XXL|Special":55400994406780,
+"chocolate|S|Standard":55400994472316,"chocolate|S|Special":55400994537852,"chocolate|M|Standard":55400994603388,"chocolate|M|Special":55400994701692,"chocolate|L|Standard":55400994931068,"chocolate|L|Special":55400994963836,"chocolate|XL|Standard":55400995455356,"chocolate|XL|Special":55400995553660,"chocolate|XXL|Standard":55400995651964,"chocolate|XXL|Special":55400995783036,
+"sahara|S|Standard":55400995979644,"sahara|S|Special":55400996176252,"sahara|M|Standard":55400996569468,"sahara|M|Special":55400996733308,"sahara|L|Standard":55400997421436,"sahara|L|Special":55400997486972,"sahara|XL|Standard":55400997552508,"sahara|XL|Special":55400997847420,"sahara|XXL|Standard":55400997978492,"sahara|XXL|Special":55400998273404,
+"schwarz|S|Standard":55400998404476,"schwarz|S|Special":55400999125372,"schwarz|M|Standard":55400999190908,"schwarz|M|Special":55400999256444,"schwarz|L|Standard":55400999321980,"schwarz|L|Special":55400999518588,"schwarz|XL|Standard":55400999649660,"schwarz|XL|Special":55400999747964,"schwarz|XXL|Standard":55400999813500,"schwarz|XXL|Special":55401000075644,
+"zartbitter|S|Standard":55401000337788,"zartbitter|S|Special":55401000403324,"zartbitter|M|Standard":55401000468860,"zartbitter|M|Special":55401000534396,"zartbitter|L|Standard":55401000960380,"zartbitter|L|Special":55401001222524,"zartbitter|XL|Standard":55401002566012,"zartbitter|XL|Special":55401002631548,"zartbitter|XXL|Standard":55401002729852,"zartbitter|XXL|Special":55401002893692,
+"brombeer|S|Standard":55401003155836,"brombeer|S|Special":55401003680124,"brombeer|M|Standard":55401003778428,"brombeer|M|Special":55401003909500,"brombeer|L|Standard":55401004138876,"brombeer|L|Special":55401004302716,"brombeer|XL|Standard":55401004466556,"brombeer|XL|Special":55401004564860,"brombeer|XXL|Standard":55401004663164,"brombeer|XXL|Special":55401004728700
+};
+
+const state = { ...OFFER.defaults, img:0 };
+const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+const eur = n => n.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2}) + " €";
+const r2 = n => Math.round(n*100)/100;
+const setAll = (sel, txt) => $$(sel).forEach(el => el.textContent = txt);
+const img = (file, w) => CDN + file + "&width=" + w;
+
+setAll(".js-code", OFFER.code);
+setAll(".js-amt", OFFER.amount);
+setAll(".js-maxsave", Math.round(SIZES.XL.Special.c - SIZES.XL.Special.p));
+
+/* Swatches, Größen, Schaum */
+$("#sw").innerHTML = Object.entries(COLORS).map(([k,c]) =>
+  `<button type="button" class="sw" style="background:${c.hex}" data-color="${k}" aria-label="${k}" title="${k}"></button>`).join("");
+$("#sizes").innerHTML = Object.entries(SIZES).map(([k,s]) =>
+  `<button type="button" class="opt" data-size="${k}">${k}<small>${s.kg}</small></button>`).join("");
+$("#foam").innerHTML = ["Standard","Special"].map(f =>
+  `<button type="button" class="opt" data-foam="${f}">${f}<small class="js-foam-${f}"></small></button>`).join("");
+
+$("#sw").addEventListener("click", e => { const b = e.target.closest("[data-color]"); if (b) { state.color = b.dataset.color; state.img = 0; render(); } });
+$("#sizes").addEventListener("click", e => { const b = e.target.closest("[data-size]"); if (b) { state.size = b.dataset.size; render(); } });
+$("#foam").addEventListener("click", e => { const b = e.target.closest("[data-foam]"); if (b) { state.foam = b.dataset.foam; render(); } });
+$("#g-prev").addEventListener("click", () => { const n = COLORS[state.color].imgs.length; state.img = (state.img - 1 + n) % n; renderGallery(); });
+$("#g-next").addEventListener("click", () => { const n = COLORS[state.color].imgs.length; state.img = (state.img + 1) % n; renderGallery(); });
+$("#g-thumbs").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) { state.img = +b.dataset.i; renderGallery(); } });
+
+function renderGallery(){
+  const imgs = COLORS[state.color].imgs;
+  $("#g-img").src = img(imgs[state.img], 1100);
+  $("#g-img").alt = `All-in Relax Bundle in ${state.color}, Bild ${state.img+1} von ${imgs.length}`;
+  $("#g-thumbs").innerHTML = imgs.map((f,i) =>
+    `<button type="button" data-i="${i}" aria-current="${i===state.img}" aria-label="Bild ${i+1}"><img src="${img(f,160)}" alt="" loading="lazy"></button>`).join("");
+}
+
+function render(){
+  const s = SIZES[state.size], pr = s[state.foam];
+  const kudde = r2(pr.c - s.mjuck - KISSEN);
+  const bundleSave = r2(pr.c - pr.p);
+  const codeSave = r2(OFFER.amount);
+  const final = r2(pr.p - codeSave);
+  const totalSave = r2(pr.c - final);
+
+  $$("[data-color]").forEach(b => b.setAttribute("aria-pressed", b.dataset.color === state.color));
+  $$("[data-size]").forEach(b => b.setAttribute("aria-pressed", b.dataset.size === state.size));
+  $$("[data-foam]").forEach(b => b.setAttribute("aria-pressed", b.dataset.foam === state.foam));
+  $(".js-foam-Standard").textContent = "inklusive";
+  $(".js-foam-Special").textContent = "+" + eur(r2(s.Special.p - s.Standard.p));
+  $("#lbl-color").textContent = state.color;
+  $("#lbl-size").textContent = s.label;
+  $("#sizehint").innerHTML = `<b>Liegefläche ${s.lie}</b> · Außenmaß ${s.outer} · ${s.kg}<br>z. B. ${s.breeds}`;
+
+  const meta = `${state.color} · ${s.label} · ${state.foam}`;
+  $$(".js-variant-meta").forEach(el => el.textContent = el.closest(".sticky") ? `${state.color} · ${state.size} · ${state.foam}` : meta);
+  setAll(".js-p-kudde", eur(kudde));
+  setAll(".js-p-mjuck", eur(s.mjuck));
+  setAll(".js-p-kissen", eur(KISSEN));
+  setAll(".js-p-bundle", "−" + eur(bundleSave));
+  setAll(".js-p-code", "−" + eur(codeSave));
+  setAll(".js-p-final", eur(final));
+  setAll(".js-p-compare", eur(pr.c));
+  setAll(".js-p-save", `Du sparst ${eur(totalSave)} (−${Math.round(totalSave/pr.c*100)} %)`);
+  $(".js-offer-img").src = img(COLORS[state.color].imgs[0], 900);
+
+  const vid = V[`${state.color}|${state.size}|${state.foam}`];
+  const url = `${OFFER.shop}/cart/${vid}:1?discount=${encodeURIComponent(OFFER.code)}`;
+  $$(".js-buy").forEach(a => a.href = url);
+  renderGallery();
+}
+
+/* Größenfinder */
+function finderSize(kg){ return Object.keys(SIZES).find(k => kg <= SIZES[k].max) || "XXL"; }
+function renderFinder(){
+  const kg = +$("#kg").value, k = finderSize(kg), s = SIZES[k];
+  $("#kg-out").textContent = kg + " kg";
+  $("#finder-res").innerHTML = `Empfehlung: <b>Größe ${s.label}</b><br>z. B. ${s.breeds}`;
+  $("#finder-measure").innerHTML = `<div>Liegefläche<b>${s.lie}</b></div><div>Außenmaß<b>${s.outer}</b></div><div>Randhöhe<b>15 cm</b></div><div>Bundle mit Code<b>${eur(r2(s.Standard.p-OFFER.amount))}</b></div>`;
+  $("#finder-apply").dataset.size = k;
+  $("#finder-apply").textContent = `Größe ${k} übernehmen`;
+}
+$("#kg").addEventListener("input", renderFinder);
+$("#finder-apply").addEventListener("click", e => { state.size = e.currentTarget.dataset.size; render(); $("#produkt").scrollIntoView(); });
+
+/* Weitere Bewertungen */
+$("#more-rv").addEventListener("click", e => { $$(".rv.more").forEach(el => el.hidden = false); e.currentTarget.hidden = true; });
+
+/* Code kopieren */
+function toast(msg){ const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 1800); }
+$$("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const done = () => toast(`Code ${OFFER.code} kopiert`);
+  if (navigator.clipboard) navigator.clipboard.writeText(OFFER.code).then(done).catch(() => { selectCode(); toast("Code markiert, bitte kopieren"); });
+  else { selectCode(); toast("Code markiert, bitte kopieren"); }
+}));
+function selectCode(){ const r = document.createRange(); r.selectNodeContents($("#hero-code")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+/* Countdown bis Mitternacht */
+function tick(){
+  const now = new Date(), end = new Date(now); end.setHours(24,0,0,0);
+  let d = Math.max(0, Math.floor((end - now)/1000));
+  const h = String(Math.floor(d/3600)).padStart(2,"0"), m = String(Math.floor(d%3600/60)).padStart(2,"0"), s = String(d%60).padStart(2,"0");
+  $("#t-h").textContent = h; $("#t-m").textContent = m; $("#t-s").textContent = s;
+  $("#t-inline").textContent = `${h}:${m}:${s}`;
+}
+tick(); setInterval(tick, 1000);
+
+/* Sticky CTA erst nach dem Hero, ausgeblendet über dem Angebot */
+const sticky = $("#sticky"), hero = $(".band--dark"), offer = $("#angebot");
+let pastHero = false, offerVisible = false;
+const upd = () => sticky.classList.toggle("on", pastHero && !offerVisible);
+new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(hero);
+new IntersectionObserver(([e]) => { offerVisible = e.isIntersecting; upd(); }, { threshold: .25 }).observe(offer);
+
+render(); renderFinder();
+</script>
+</body>
+</html>
