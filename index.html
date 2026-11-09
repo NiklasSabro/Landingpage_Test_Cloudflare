@@ -71,10 +71,14 @@ p{margin:0}
 .timer small{font-size:9px;color:var(--muted)}
 
 /* Hero */
-.hero{position:relative;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0 0 auto 0;height:min(720px,100%);width:100%;object-fit:cover;object-position:center 30%;z-index:-2}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(38,27,21,.62) 0,rgba(38,27,21,.86) 120px,rgba(45,32,26,.93) 340px,var(--espresso) 720px)}
-.hero h1,.hero .hero-sub,.hero .benefits{text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.hero-media{position:relative;border-radius:var(--r);overflow:hidden;background:#fff}
+.hero-media>img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hero-tag{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.94);color:var(--ink);font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+.mr-badge{position:absolute;left:10px;bottom:10px;right:10px;max-width:290px;display:flex;align-items:center;gap:10px;background:#D9C9AE;color:#1E1712;border-radius:12px;padding:6px 14px 6px 6px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.mr-badge img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center 15%;background:#BFA987;flex:none}
+.mr-badge span{display:flex;flex-direction:column;font-family:var(--font-display);line-height:1.1;min-width:0}
+.mr-badge small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5E4D3E;font-family:var(--font-body);font-weight:700}
+.mr-badge b{font-size:19px;font-weight:600;letter-spacing:.01em}
 .pill{align-self:flex-start;background:var(--caramel);color:#fff;font-weight:600;font-size:14px;padding:8px 12px;border-radius:6px}
 .hero-sub{border-left:2px solid var(--caramel);padding-left:12px;font-size:15px;color:#E7DCD1}
 .codecard{background:var(--espresso-2);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
@@ -82,8 +86,6 @@ p{margin:0}
 .coderow{display:flex;gap:8px;align-items:stretch}
 .code{flex:1;min-width:0;border:2px dashed var(--caramel);border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 22px/1 var(--font-body);letter-spacing:.14em;color:#fff;padding:10px}
 .copy{background:var(--caramel);color:#fff;border:0;border-radius:8px;padding:0 16px;font-weight:600;font-size:14px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:var(--r);overflow:hidden}
-.duo img{aspect-ratio:3/4;object-fit:cover;width:100%;height:100%}
 .benefits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .benefits li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:15px}
 .benefits svg{width:22px;height:22px;stroke:var(--caramel);fill:none;stroke-width:1.6;margin-top:1px}
@@ -258,11 +260,19 @@ footer a{color:#CDBFB2}
 
 <!-- ========== HERO ========== -->
 <section class="band band--dark hero">
-  <img class="hero-bg" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Sabro_250821_25037_2_71411720-567a-4a59-85a0-cacdb5f596ef.jpg?v=1758632079&width=1200" alt="" aria-hidden="true" fetchpriority="high">
   <div class="wrap">
     <div class="pill">Über 500.000 Hunde schlafen seit 1995 auf einem KUDDE</div>
     <h1>Das Hundebett, in dem sich dein Hund <em class="hl">endlich ganz ausstreckt.</em></h1>
     <p class="hero-sub">All-in Relax Bundle: <b>KUDDE Hundebett</b> + <b>MJUCK Einlage</b> + <b>MJUCKIS Kissen</b></p>
+
+    <figure class="hero-media" style="margin:0">
+      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_sahara_Fullshot_Aussie_Milieu.png?v=1786372327&width=1100" alt="Australian Shepherd liegt im All-in Relax Bundle in sahara: KUDDE, MJUCK Einlage und MJUCKIS Kissen" width="1100" height="825" fetchpriority="high">
+      <span class="hero-tag">All-in Relax Bundle · sahara</span>
+      <figcaption class="mr-badge">
+        <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Martin_Portrait_Landingpage_png.png?v=1772034253&width=160" alt="Martin Rütter" width="48" height="48">
+        <span><small>Empfohlen von</small><b>Martin Rütter</b></span>
+      </figcaption>
+    </figure>
 
     <div class="codecard">
       <p>Dein exklusiver Code für das komplette Set. <b>Er wird an der Kasse automatisch abgezogen</b>, du musst nichts eintippen.</p>
@@ -273,10 +283,6 @@ footer a{color:#CDBFB2}
       <p class="small" style="color:#CDBFB2"><span class="js-amt">5</span>&nbsp;€ extra Rabatt auf den Bundle-Preis, der schon bis zu <span class="js-maxsave">80</span>&nbsp;€ unter dem Einzelkauf liegt.</p>
     </div>
 
-    <div class="duo">
-      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3791Shop.jpg?v=1773914448&width=700" alt="Hund im KUDDE in sahara" width="700" height="933" fetchpriority="high">
-      <img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/O8B9960-Kopie-min.jpg?v=1773916340&width=700" alt="Hund im KUDDE in chocolate" width="700" height="933">
-    </div>
 
     <ul class="benefits">
       <li><svg viewBox="0 0 24 24"><path d="M3 15h18M5 15V9a2 2 0 012-2h10a2 2 0 012 2v6M3 15v3M21 15v3"/></svg><span><b>Rechteckig &amp; orthopädisch:</b> Die Wirbelsäule streckt sich in ihrer natürlichen Länge aus</span></li>
