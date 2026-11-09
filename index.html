@@ -59,7 +59,8 @@ p{margin:0}
 
 /* Header + Countdown */
 .topbar{background:var(--paper);text-align:center;padding:12px 16px}
-.logo{font-family:var(--font-display);font-weight:600;letter-spacing:.22em;font-size:22px;color:var(--espresso)}
+.logo{display:inline-block;height:34px;width:auto}
+.logo--light{filter:brightness(0) invert(1)}
 .codebar{background:var(--caramel);color:#fff;padding:9px max(16px,env(safe-area-inset-right,0px)) 9px max(16px,env(safe-area-inset-left,0px))}
 .codebar .wrap{flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
 .codebar b{display:block;font-size:14px}
@@ -70,6 +71,10 @@ p{margin:0}
 .timer small{font-size:9px;color:var(--muted)}
 
 /* Hero */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0 0 auto 0;height:min(720px,100%);width:100%;object-fit:cover;object-position:center 30%;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(38,27,21,.62) 0,rgba(38,27,21,.86) 120px,rgba(45,32,26,.93) 340px,var(--espresso) 720px)}
+.hero h1,.hero .hero-sub,.hero .benefits{text-shadow:0 1px 12px rgba(0,0,0,.45)}
 .pill{align-self:flex-start;background:var(--caramel);color:#fff;font-weight:600;font-size:14px;padding:8px 12px;border-radius:6px}
 .hero-sub{border-left:2px solid var(--caramel);padding-left:12px;font-size:15px;color:#E7DCD1}
 .codecard{background:var(--espresso-2);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
@@ -115,13 +120,13 @@ p{margin:0}
 /* Product block */
 .gallery{display:flex;flex-direction:column;gap:8px}
 .gmain{position:relative;background:#fff;border-radius:var(--r);overflow:hidden}
-.gmain img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.gmain img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff}
 .gnav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:18px;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .gnav.prev{left:10px}.gnav.next{right:10px}
 .thumbs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
 .thumbs button{flex:0 0 64px;border:2px solid transparent;border-radius:6px;padding:0;background:#fff;overflow:hidden}
 .thumbs button[aria-current="true"]{border-color:var(--espresso)}
-.thumbs img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.thumbs img{aspect-ratio:4/3;object-fit:contain;width:100%;background:#fff}
 
 .picker{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:18px}
 .field{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0;min-width:0}
@@ -151,7 +156,7 @@ p{margin:0}
 .offer-body{padding:18px;display:flex;flex-direction:column;gap:14px}
 .offer-title{font-family:var(--font-display);font-size:24px;font-weight:500}
 .offer-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.offer-img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;background:#fff;width:100%}
+.offer-img{border-radius:8px;aspect-ratio:4/3;object-fit:contain;background:#fff;width:100%}
 .lines{list-style:none;margin:0;padding:0;font-size:14px}
 .lines li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .lines li span:first-child{min-width:0}
@@ -222,7 +227,7 @@ summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:20px;f
 details[open] summary::after{content:"–"}
 details p{padding:0 0 16px;font-size:15px;color:#4A3E37}
 footer{background:var(--espresso);color:#CDBFB2;text-align:center;font-size:12px;padding:28px max(16px,env(safe-area-inset-right,0px)) 28px max(16px,env(safe-area-inset-left,0px))}
-footer .logo{color:#fff;display:block;margin-bottom:8px}
+footer .logo{display:block}
 footer a{color:#CDBFB2}
 
 /* Sticky CTA */
@@ -239,7 +244,7 @@ footer a{color:#CDBFB2}
 <body>
 
 <!-- ========== HEADER + CODE-COUNTDOWN ========== -->
-<div class="topbar"><span class="logo">SABRO</span></div>
+<div class="topbar"><img class="logo" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/SABRO_Logo_klein_ohne_HG.svg?v=1722941867" alt="SABRO" width="70" height="34"></div>
 <div class="codebar" role="note">
   <div class="wrap">
     <div><b>Code <span class="js-code">RELAX5</span> aktiv</b><span>Nur noch heute einlösbar</span></div>
@@ -252,7 +257,8 @@ footer a{color:#CDBFB2}
 </div>
 
 <!-- ========== HERO ========== -->
-<section class="band band--dark">
+<section class="band band--dark hero">
+  <img class="hero-bg" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/Sabro_250821_25037_2_71411720-567a-4a59-85a0-cacdb5f596ef.jpg?v=1758632079&width=1200" alt="" aria-hidden="true" fetchpriority="high">
   <div class="wrap">
     <div class="pill">Über 500.000 Hunde schlafen seit 1995 auf einem KUDDE</div>
     <h1>Das Hundebett, in dem sich dein Hund <em class="hl">endlich ganz ausstreckt.</em></h1>
@@ -613,7 +619,7 @@ footer a{color:#CDBFB2}
 </section>
 
 <footer>
-  <span class="logo">SABRO</span>
+  <img class="logo logo--light" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/SABRO_Logo_klein_ohne_HG.svg?v=1722941867" alt="SABRO" width="70" height="34" loading="lazy" style="margin:0 auto 10px">
   SABRO GmbH · Kirchenstr. 16 · 21224 Rosengarten<br>
   <a href="https://sabro.de/policies/legal-notice">Impressum</a> · <a href="https://sabro.de/policies/privacy-policy">Datenschutz</a> · <a href="https://sabro.de/policies/terms-of-service">AGB</a>
 </footer>
