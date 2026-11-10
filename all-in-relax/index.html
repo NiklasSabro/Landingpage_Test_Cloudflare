@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>All-in Relax Angebot</title>
+<!-- Meta Pixel: 173850589s Pixel (Werbekonto SABRO GmbH DACH 173850589) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '151830518671424');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=151830518671424&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel -->
 <meta name="description" content="KUDDE Hundebett + MJUCK Einlage + MJUCKIS Kissen im All-in Relax Bundle. Mit deinem Code sparst du heute zusätzlich.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -792,7 +804,7 @@ function render(){
   $(".js-offer-img").src = img(COLORS[state.color].imgs[0], 900);
 
   const vid = V[`${state.color}|${state.size}|${state.foam}`];
-  const url = `${OFFER.shop}/cart/${vid}:1`;
+  const url = `${OFFER.shop}/cart/${vid}:1${trackingQuery()}`;
   $$(".js-buy").forEach(a => a.href = url);
   renderGallery();
 }
@@ -815,6 +827,27 @@ $("#more-rv").addEventListener("click", e => { $$(".rv.more").forEach(el => el.h
 
 /* Beim Klick auf einen Kauf-Button den Code mitkopieren (Navigation läuft normal weiter) */
 $$(".js-buy").forEach(a => a.addEventListener("click", () => { try { navigator.clipboard && navigator.clipboard.writeText(OFFER.code).catch(() => {}); } catch (e) {} }));
+
+/* Meta Pixel: Events + Weitergabe der Anzeigen-Parameter an den Shop */
+function trackingQuery(){
+  try {
+    const src = new URLSearchParams(location.search), out = new URLSearchParams();
+    src.forEach((v, k) => { if (k === "fbclid" || k.startsWith("utm_")) out.set(k, v); });
+    const q = out.toString(); return q ? "?" + q : "";
+  } catch (e) { return ""; }
+}
+function pixelData(){
+  const s = SIZES[state.size], pr = s[state.foam];
+  return {
+    content_ids: [String(V[`${state.color}|${state.size}|${state.foam}`])],
+    content_name: `All-in Relax Bundle ${state.color} ${state.size} ${state.foam}`,
+    content_type: "product",
+    value: r2(pr.p - OFFER.amount),
+    currency: "EUR"
+  };
+}
+function track(ev){ try { window.fbq && fbq("track", ev, pixelData()); } catch (e) {} }
+$$(".js-buy").forEach(a => a.addEventListener("click", () => track("AddToCart")));
 
 /* Code kopieren */
 function toast(msg){ const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 1800); }
@@ -843,6 +876,7 @@ new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingCl
 new IntersectionObserver(([e]) => { offerVisible = e.isIntersecting; upd(); }, { threshold: .25 }).observe(offer);
 
 render(); renderFinder();
+track("ViewContent");
 </script>
 </body>
 </html>
