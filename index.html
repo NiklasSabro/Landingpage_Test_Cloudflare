@@ -164,6 +164,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .offer-flag{background:var(--espresso);color:#fff;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px}
 .offer-body{padding:18px;display:flex;flex-direction:column;gap:14px}
 .offer-title{font-family:var(--font-display);font-size:24px;font-weight:500}
+.offer-pick{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:16px}
 .offer-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .offer-img{border-radius:8px;aspect-ratio:4/3;object-fit:contain;background:#fff;width:100%}
 .lines{list-style:none;margin:0;padding:0;font-size:14px}
@@ -407,18 +408,18 @@ footer a{color:#CDBFB2}
 
     <div class="picker">
       <fieldset class="field">
-        <legend>Farbe: <span id="lbl-color">sahara</span></legend>
-        <div class="swatches" id="sw"></div>
+        <legend>Farbe: <span class="js-lbl-color">sahara</span></legend>
+        <div class="swatches js-sw"></div>
       </fieldset>
       <fieldset class="field">
-        <legend>Größe: <span id="lbl-size">L (80 × 100 cm)</span></legend>
-        <div class="sizes" id="sizes"></div>
-        <div class="sizehint" id="sizehint"></div>
+        <legend>Größe: <span class="js-lbl-size">L (80 × 100 cm)</span></legend>
+        <div class="sizes js-sizes"></div>
+        <div class="sizehint js-sizehint"></div>
         <a href="#groesse" class="small">Unsicher? Zum Größenfinder ↓</a>
       </fieldset>
       <fieldset class="field">
         <legend>Schaumstoff</legend>
-        <div class="foam" id="foam"></div>
+        <div class="foam js-foam"></div>
       </fieldset>
 
       <ul class="checks">
@@ -450,6 +451,22 @@ footer a{color:#CDBFB2}
           <div class="offer-meta js-variant-meta">sahara · L (80 × 100 cm) · Standard</div>
         </div>
         <img class="offer-img js-offer-img" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_sahara.png?v=1786374626&width=900" alt="All-in Relax Bundle" loading="lazy">
+        <div class="offer-pick">
+          <fieldset class="field">
+            <legend>1. Farbe wählen: <span class="js-lbl-color">sahara</span></legend>
+            <div class="swatches js-sw"></div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>2. Größe wählen: <span class="js-lbl-size">L (80 × 100 cm)</span></legend>
+            <div class="sizes js-sizes"></div>
+            <div class="sizehint js-sizehint"></div>
+            <a href="#groesse" class="small">Welche Größe passt? Zum Größenfinder</a>
+          </fieldset>
+          <fieldset class="field">
+            <legend>3. Schaumstoff wählen</legend>
+            <div class="foam js-foam"></div>
+          </fieldset>
+        </div>
         <ul class="lines num">
           <li><span>KUDDE Hundebett</span><span class="js-p-kudde">189,90 €</span></li>
           <li><span>+ MJUCK Einlage</span><span class="js-p-mjuck">64,90 €</span></li>
@@ -717,16 +734,22 @@ setAll(".js-amt", OFFER.amount);
 setAll(".js-maxsave", Math.round(SIZES.XL.Special.c - SIZES.XL.Special.p));
 
 /* Swatches, Größen, Schaum */
-$("#sw").innerHTML = Object.entries(COLORS).map(([k,c]) =>
+const swHTML = Object.entries(COLORS).map(([k,c]) =>
   `<button type="button" class="sw" style="background:${c.hex}" data-color="${k}" aria-label="${k}" title="${k}"></button>`).join("");
-$("#sizes").innerHTML = Object.entries(SIZES).map(([k,s]) =>
+const sizeHTML = Object.entries(SIZES).map(([k,s]) =>
   `<button type="button" class="opt" data-size="${k}">${k}<small>${s.kg}</small></button>`).join("");
-$("#foam").innerHTML = ["Standard","Special"].map(f =>
+const foamHTML = ["Standard","Special"].map(f =>
   `<button type="button" class="opt" data-foam="${f}">${f}<small class="js-foam-${f}"></small></button>`).join("");
+$$(".js-sw").forEach(el => el.innerHTML = swHTML);
+$$(".js-sizes").forEach(el => el.innerHTML = sizeHTML);
+$$(".js-foam").forEach(el => el.innerHTML = foamHTML);
 
-$("#sw").addEventListener("click", e => { const b = e.target.closest("[data-color]"); if (b) { state.color = b.dataset.color; state.img = 0; render(); } });
-$("#sizes").addEventListener("click", e => { const b = e.target.closest("[data-size]"); if (b) { state.size = b.dataset.size; render(); } });
-$("#foam").addEventListener("click", e => { const b = e.target.closest("[data-foam]"); if (b) { state.foam = b.dataset.foam; render(); } });
+document.addEventListener("click", e => {
+  const c = e.target.closest("[data-color]"), z = e.target.closest("[data-size]:not(#finder-apply)"), f = e.target.closest("[data-foam]");
+  if (c) { state.color = c.dataset.color; state.img = 0; render(); }
+  else if (z) { state.size = z.dataset.size; render(); }
+  else if (f) { state.foam = f.dataset.foam; render(); }
+});
 $("#g-prev").addEventListener("click", () => { const n = COLORS[state.color].imgs.length; state.img = (state.img - 1 + n) % n; renderGallery(); });
 $("#g-next").addEventListener("click", () => { const n = COLORS[state.color].imgs.length; state.img = (state.img + 1) % n; renderGallery(); });
 $("#g-thumbs").addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) { state.img = +b.dataset.i; renderGallery(); } });
@@ -750,11 +773,11 @@ function render(){
   $$("[data-color]").forEach(b => b.setAttribute("aria-pressed", b.dataset.color === state.color));
   $$("[data-size]").forEach(b => b.setAttribute("aria-pressed", b.dataset.size === state.size));
   $$("[data-foam]").forEach(b => b.setAttribute("aria-pressed", b.dataset.foam === state.foam));
-  $(".js-foam-Standard").textContent = "inklusive";
-  $(".js-foam-Special").textContent = "+" + eur(r2(s.Special.p - s.Standard.p));
-  $("#lbl-color").textContent = state.color;
-  $("#lbl-size").textContent = s.label;
-  $("#sizehint").innerHTML = `<b>Liegefläche ${s.lie}</b> · Außenmaß ${s.outer} · ${s.kg}<br>z. B. ${s.breeds}`;
+  setAll(".js-foam-Standard", "inklusive");
+  setAll(".js-foam-Special", "+" + eur(r2(s.Special.p - s.Standard.p)));
+  setAll(".js-lbl-color", state.color);
+  setAll(".js-lbl-size", s.label);
+  $$(".js-sizehint").forEach(el => el.innerHTML = `<b>Liegefläche ${s.lie}</b> · Außenmaß ${s.outer} · ${s.kg}<br>z. B. ${s.breeds}`);
 
   const meta = `${state.color} · ${s.label} · ${state.foam}`;
   $$(".js-variant-meta").forEach(el => el.textContent = el.closest(".sticky") ? `${state.color} · ${state.size} · ${state.foam}` : meta);
