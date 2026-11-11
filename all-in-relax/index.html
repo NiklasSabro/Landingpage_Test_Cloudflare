@@ -114,7 +114,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .stars{color:#E5A93B;letter-spacing:1px}
 .rating{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
 .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;text-align:center}
-.trust b{display:block;font-family:var(--font-display);font-weight:500;font-size:20px;color:#fff}
+.trust div{display:flex;flex-direction:column;align-items:center;gap:8px}
+.trust svg{width:30px;height:30px;fill:none;stroke:#E9DCCB;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .trust span{font-size:12px;color:#CDBFB2;line-height:1.3;display:block}
 
 /* Quick quotes */
@@ -338,12 +339,12 @@ footer a{color:#CDBFB2}
     </ul>
 
     <a class="btn btn--light" href="#angebot">Zum Angebot →</a>
-    <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4,86 / 5 · 536 Bewertungen auf Reviews.io</div>
+    <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 3.026 Bewertungen auf REVIEWS.io</div>
 
     <div class="trust">
-      <div><b>1995</b><span>KUDDE seit über 30 Jahren</span></div>
-      <div><b>10 Jahre</b><span>Garantie auf den Schaumkern</span></div>
-      <div><b>100 Tage</b><span>Probeschlafen</span></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/><path d="M10 9l1.5 1.5L14.5 7.5"/></svg><span>Seit 1995 von SABRO</span></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>10 Jahre Garantie auf den Schaumkern</span></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/><path d="M15 4h3l-3 4h3"/></svg><span>100 Tage Probeschlafen</span></div>
     </div>
   </div>
 </section>
@@ -353,7 +354,7 @@ footer a{color:#CDBFB2}
   <div class="wrap">
     <h2>Was Hundehalter nach der <em class="mark">ersten Nacht</em> erzählen</h2>
     <p class="lead">Originale 5-Sterne-Bewertungen zum KUDDE und zum All-in Relax Bundle. Die Fotos stammen aus unserem Shooting.</p>
-    <div class="qsum"><span class="rv-stars" aria-hidden="true"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></span><b class="num">4,86</b><span>aus 536 Bewertungen auf REVIEWS.io</span></div>
+    <div class="qsum"><span class="rv-stars" aria-hidden="true"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></span><b class="num">3.026</b><span>Bewertungen auf REVIEWS.io</span></div>
     <div class="qrow" aria-label="Kundenbewertungen, seitlich wischen">
       <article class="qrv">
         <figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=600" alt="Dackel im KUDDE in brombeer" loading="lazy"><figcaption class="qtag">Im Bild: Dackel · KUDDE brombeer</figcaption></figure>
@@ -576,15 +577,15 @@ footer a{color:#CDBFB2}
     <div class="rvw">
       <div class="rvw-head">
         <div class="rvw-score">
-          <span class="rvw-num num">4,86</span>
-          <div><div class="rv-stars big"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div><span class="rvw-count">536 Bewertungen</span></div>
+          <span class="rvw-num num">3.026</span>
+          <div><div class="rv-stars big"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div><span class="rvw-count">Bewertungen auf REVIEWS.io</span></div>
         </div>
         <span class="rvw-src"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Bewertungen über REVIEWS.io</span>
       </div>
       <div class="rvw-tabs" role="tablist">
         <button type="button" class="rvw-tab" data-filter="all" aria-pressed="true">Alle</button>
-        <button type="button" class="rvw-tab" data-filter="bundle" aria-pressed="false">All-in Relax Bundle <span>4,91 ★ (33)</span></button>
-        <button type="button" class="rvw-tab" data-filter="kudde" aria-pressed="false">KUDDE Hundebett <span>4,86 ★ (536)</span></button>
+        <button type="button" class="rvw-tab" data-filter="bundle" aria-pressed="false">All-in Relax Bundle</button>
+        <button type="button" class="rvw-tab" data-filter="kudde" aria-pressed="false">KUDDE Hundebett</button>
       </div>
       <div class="rvw-list">
       <article class="rv" data-product="kudde" data-rank="0">
