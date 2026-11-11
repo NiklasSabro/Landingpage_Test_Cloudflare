@@ -82,8 +82,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .codechip-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
 .codechip small{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .codechip b{font-size:16px;letter-spacing:.08em}
-.codechip svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.8}
-.codechip.ok{border-style:solid;border-color:var(--good);background:#E3F1E8}
 @media (max-width:360px){.cd small,.codechip small{display:none}.logo{height:28px}}
 
 /* Hero */
@@ -102,7 +100,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .codecard p{font-size:15px;color:#EADFD4}
 .coderow{display:flex;gap:8px;align-items:stretch}
 .code{flex:1;min-width:0;border:2px dashed var(--caramel);border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 22px/1 var(--font-body);letter-spacing:.14em;color:#fff;padding:10px}
-.copy{background:var(--caramel);color:#fff;border:0;border-radius:8px;padding:0 16px;font-weight:600;font-size:14px}
 .benefits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .benefits li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:15px}
 .benefits svg{width:22px;height:22px;stroke:var(--caramel);fill:none;stroke-width:1.6;margin-top:1px}
@@ -284,7 +281,6 @@ footer a{color:#CDBFB2}
 .sticky .p b{font-size:18px;font-variant-numeric:tabular-nums}
 .sticky .p small{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sticky .btn{width:auto;flex:1;padding:14px 12px;font-size:13px}
-.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:30}
 </style>
 </head>
 <body>
@@ -297,10 +293,9 @@ footer a{color:#CDBFB2}
       <small>Endet in</small>
       <span class="num"><b id="t-h">00</b>:<b id="t-m">00</b>:<b id="t-s">00</b></span>
     </div>
-    <button class="codechip" type="button" data-copy aria-label="Code kopieren">
+    <div class="codechip">
       <span class="codechip-txt"><small>Dein Code</small><b class="js-code">RELAX5</b></span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
-    </button>
+    </div>
   </div>
 </header>
 
@@ -999,14 +994,6 @@ function pixelData(){
 function track(ev){ try { window.fbq && fbq("track", ev, pixelData()); } catch (e) {} }
 $$(".js-buy").forEach(a => a.addEventListener("click", () => track("AddToCart")));
 
-/* Code kopieren */
-function toast(msg){ const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 1800); }
-$$("[data-copy]").forEach(b => b.addEventListener("click", () => {
-  const done = () => { toast(`Code ${OFFER.code} kopiert`); b.classList.add("ok"); setTimeout(() => b.classList.remove("ok"), 1800); };
-  if (navigator.clipboard) navigator.clipboard.writeText(OFFER.code).then(done).catch(() => { selectCode(); toast("Code markiert, bitte kopieren"); });
-  else { selectCode(); toast("Code markiert, bitte kopieren"); }
-}));
-function selectCode(){ const r = document.createRange(); r.selectNodeContents($("#hero-code")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
 
 /* Countdown bis Mitternacht */
 function tick(){
