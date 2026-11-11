@@ -191,9 +191,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pricebox s{color:var(--muted)}
 .pricebox .save{color:var(--good);font-weight:700;font-size:14px}
 .pricebox .codeline{font-size:13px}
-.howto{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.howto-h{font-size:16px}
-.howto ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.45}
 .urgent{border:1px solid #E7C2B9;background:#FBF0EC;border-radius:8px;padding:10px;text-align:center;font-size:13px;color:var(--alert)}
 .secure{font-size:12px;color:var(--muted);text-align:center}
 .alt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
@@ -300,10 +297,9 @@ footer a{color:#CDBFB2}
     </figure>
 
     <div class="codecard">
-      <p>Dein Code für das komplette Set. <b>Gib ihn an der Kasse im Feld „Rabattcode“ ein</b>, dann werden die 5&nbsp;€ abgezogen.</p>
+      <p>Dein Code für das komplette Set. <b>Die 5&nbsp;€ werden im Warenkorb automatisch abgezogen.</b> Du musst nichts eintippen.</p>
       <div class="coderow">
         <div class="code js-code" id="hero-code">RELAX5</div>
-        <button class="copy" type="button" data-copy>Kopieren</button>
       </div>
       <p class="small" style="color:#CDBFB2"><span class="js-amt">5</span>&nbsp;€ extra Rabatt auf den Bundle-Preis, der schon bis zu <span class="js-maxsave">80</span>&nbsp;€ unter dem Einzelkauf liegt.</p>
     </div>
@@ -492,21 +488,11 @@ footer a{color:#CDBFB2}
           <span class="big num js-p-final">219,80 €</span>
           <s class="num js-p-compare">294,70 €</s>
           <span class="save num js-p-save">Du sparst 74,90 € (−25 %)</span>
-          <span class="codeline">Code <b class="js-code">RELAX5</b> an der Kasse eingeben</span>
+          <span class="codeline">Code <b class="js-code">RELAX5</b> wird im Warenkorb automatisch abgezogen</span>
         </div>
         <div class="urgent">Der Code gilt nur noch heute · <b class="num" id="t-inline">00:00:00</b></div>
-        <div class="howto">
-          <b class="howto-h">So bekommst du deine 5&nbsp;€ Rabatt</b>
-          <ol>
-            <li>Tippe unten auf <b>„Angebot sichern“</b>. Du kommst in den Warenkorb.</li>
-            <li>Tippe auf <b>„Zur Kasse“</b>.</li>
-            <li>Suche das Feld <b>„Rabattcode“</b>. Schreibe dort <b class="js-code">RELAX5</b> hinein.</li>
-            <li>Tippe auf <b>„Anwenden“</b>. Die 5&nbsp;€ werden sofort abgezogen.</li>
-          </ol>
-          <p class="small">Tipp: Beim Tippen auf „Angebot sichern“ kopieren wir den Code für dich. Du kannst ihn im Feld auch einfach einfügen.</p>
-        </div>
         <a class="btn btn--dark js-buy" href="#">Angebot sichern →</a>
-        <p class="secure">🔒 Du wirst sicher zur SABRO-Kasse weitergeleitet. Dort gibst du den Code ein.</p>
+        <p class="secure">🔒 Du kommst direkt in den SABRO-Warenkorb, der Rabatt ist schon abgezogen.</p>
       </div>
     </div>
 
@@ -641,11 +627,9 @@ footer a{color:#CDBFB2}
     <div class="codecard">
       <div class="coderow">
         <div class="code js-code">RELAX5</div>
-        <button class="copy" type="button" data-copy>Kopieren</button>
       </div>
       <p class="num"><b class="js-variant-meta">sahara · L (80 × 100 cm) · Standard</b><br>statt <s class="js-p-compare">294,70 €</s> nur <b class="js-p-final" style="font-size:20px">219,80 €</b></p>
     </div>
-    <p class="small" style="color:#CDBFB2">Code an der Kasse ins Feld „Rabattcode“ eingeben.</p>
     <a class="btn btn--light js-buy" href="#">Jetzt All-in Relax Bundle sichern →</a>
     <a class="small" href="#produkt" style="color:#CDBFB2;text-align:center">Farbe oder Größe ändern</a>
   </div>
@@ -666,7 +650,7 @@ footer a{color:#CDBFB2}
   <div class="wrap" style="gap:0">
     <span class="eyebrow" style="margin-bottom:6px">Häufige Fragen</span>
     <h2 style="margin-bottom:10px">FAQ</h2>
-    <details open><summary>Wie löse ich den Code ein?</summary><p>Ganz einfach in vier Schritten: 1. Wähle Farbe und Größe und tippe auf „Angebot sichern“. 2. Im Warenkorb tippst du auf „Zur Kasse“. 3. An der Kasse gibt es ein Feld „Rabattcode“. Schreibe dort <b class="js-code">RELAX5</b> hinein. 4. Tippe auf „Anwenden“. Jetzt siehst du die 5&nbsp;€ Rabatt direkt im Gesamtpreis. Der Code wird nicht von selbst abgezogen, du musst ihn einmal eingeben.</p></details>
+    <details><summary>Wie löse ich den Code ein?</summary><p>Gar nicht, das passiert automatisch. Wähle Farbe und Größe und tippe auf „Angebot sichern“. Du landest direkt im Warenkorb, der Code <b class="js-code">RELAX5</b> ist dort schon eingelöst und die 5&nbsp;€ sind abgezogen. Du musst nichts eintippen.</p></details>
     <details><summary>Welche Größe brauche ich?</summary><p>Miss deinen Hund von der Nasenspitze bis zum Rutenansatz. Die Liegefläche sollte mindestens so lang sein. So findest du die Größe: S für Hunde bis 50 cm, M bis 65 cm, L bis 80 cm, XL bis 100 cm, XXL bis 130 cm. Liegt dein Hund genau dazwischen, nimm lieber die größere Größe.</p></details>
     <details><summary>Was genau ist im Bundle enthalten?</summary><p>Das orthopädische KUDDE Hundebett mit Kunstlederbezug, die passende MJUCK Einlage aus Breitcord und das MJUCKIS Kuschelkissen (40 × 40 cm) mit wasserabweisendem Schutzbezug.</p></details>
     <details><summary>Kann ich die Farbe von Einlage und Kissen wählen?</summary><p>Die Sets sind farblich aufeinander abgestimmt. Einlage und Kissen kommen passend zur gewählten Kunstlederfarbe, in der Regel wie im Produktfoto. Bei Nichtverfügbarkeit behalten wir uns eine alternative Farbe vor.</p></details>
@@ -804,7 +788,8 @@ function render(){
   $(".js-offer-img").src = img(COLORS[state.color].imgs[0], 900);
 
   const vid = V[`${state.color}|${state.size}|${state.foam}`];
-  const url = `${OFFER.shop}/cart/${vid}:1${trackingQuery()}`;
+  const cartPath = `/cart/add?id=${vid}&quantity=1${trackingQuery().replace("?", "&")}`;
+  const url = `${OFFER.shop}/discount/${encodeURIComponent(OFFER.code)}?redirect=${encodeURIComponent(cartPath)}`;
   $$(".js-buy").forEach(a => a.href = url);
   renderGallery();
 }
@@ -824,9 +809,6 @@ $("#finder-apply").addEventListener("click", e => { state.size = e.currentTarget
 
 /* Weitere Bewertungen */
 $("#more-rv").addEventListener("click", e => { $$(".rv.more").forEach(el => el.hidden = false); e.currentTarget.hidden = true; });
-
-/* Beim Klick auf einen Kauf-Button den Code mitkopieren (Navigation läuft normal weiter) */
-$$(".js-buy").forEach(a => a.addEventListener("click", () => { try { navigator.clipboard && navigator.clipboard.writeText(OFFER.code).catch(() => {}); } catch (e) {} }));
 
 /* Meta Pixel: Events + Weitergabe der Anzeigen-Parameter an den Shop */
 function trackingQuery(){
