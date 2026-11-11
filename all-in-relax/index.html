@@ -118,14 +118,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .trust span{font-size:12px;color:#CDBFB2;line-height:1.3;display:block}
 
 /* Quick quotes */
-.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.qsum{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px;color:var(--muted)}
+.qsum b{font-size:15px;color:var(--ink)}
+.qrow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(16px, env(safe-area-inset-left, 0px));margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));padding:2px max(16px, env(safe-area-inset-left, 0px)) 8px;scrollbar-width:none}
+.qrow::-webkit-scrollbar{display:none}
+.qrv{flex:0 0 min(78%, 300px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .qimg{position:relative;margin:0}
 .qimg img{aspect-ratio:4/3;object-fit:cover;width:100%}
-.qtag{display:block;background:var(--sand);color:var(--muted);font-size:11px;font-weight:600;line-height:1.3;letter-spacing:.02em;text-align:center;padding:6px 8px;border-bottom:1px solid var(--line)}
-.qcard div{padding:12px;display:flex;flex-direction:column;gap:4px;text-align:center}
-.qcard b{font-size:12px;color:var(--muted);font-weight:600}
-.qcard p{font-size:14px;color:var(--ink);font-style:italic}
+.qtag{display:block;background:var(--sand);color:var(--muted);font-size:11px;font-weight:600;line-height:1.3;padding:6px 10px;border-bottom:1px solid var(--line)}
+.qrv-b{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.qrv-text{font-size:14px;line-height:1.5;color:#3F342E;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.qrv-foot{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
+.qrv-foot .rv-av{width:30px;height:30px;font-size:13px;flex:none}
+.qrv-who{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.qrv-who b{font-size:13px}
+.qrv-who small{font-size:11px;color:var(--muted)}
+.qhint{text-align:right;margin-top:-8px}
 
 /* Reasons */
 .reason{display:flex;flex-direction:column;gap:14px;padding-top:8px}
@@ -344,13 +352,55 @@ footer a{color:#CDBFB2}
 <section class="band">
   <div class="wrap">
     <h2>Was Hundehalter nach der <em class="mark">ersten Nacht</em> erzählen</h2>
-    <p class="lead">Echte Bewertungen von Kundinnen und Kunden, die das KUDDE oder das All-in Relax Bundle gekauft haben. Die Fotos stammen aus unserem Shooting.</p>
-    <div class="qgrid">
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=500" alt="Dackel im KUDDE in brombeer" loading="lazy"><span class="qtag">Dackel · KUDDE brombeer</span></figure><div><p>„Mein Hund ist sofort ins Körbchen gesprungen, hat sich ganz lang gemacht und sich rundum wohlgefühlt.“</p><b>Mandy · Kundin/Kunde</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4570Shop.jpg?v=1773916340&width=500" alt="Havaneser im KUDDE in schwarz" loading="lazy"><span class="qtag">Havaneser · KUDDE schwarz</span></figure><div><p>„Sehr hochwertiges Hundebett. Gut zu reinigen. Unser Hund liebt es.“</p><b>Bettina · Kundin/Kunde</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A2865Shop.jpg?v=1773916340&width=500" alt="Springer Spaniel im KUDDE in zartbitter" loading="lazy"><span class="qtag">Springer Spaniel · KUDDE zartbitter</span></figure><div><p>„Das Kunstleder hat eine tolle Qualität und ist halt super zu reinigen.“</p><b>Susanne · Kundin/Kunde</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/MjuckPearlSofa.jpg?v=1757405427&width=500" alt="Border Collie auf der MJUCK Einlage auf dem Sofa" loading="lazy"><span class="qtag">Border Collie · MJUCK Einlage</span></figure><div><p>„Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.“</p><b>Franziska · Kundin/Kunde</b></div></div>
+    <p class="lead">Originale 5-Sterne-Bewertungen zum KUDDE und zum All-in Relax Bundle. Die Fotos stammen aus unserem Shooting.</p>
+    <div class="qsum"><span class="rv-stars" aria-hidden="true"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></span><b class="num">4,86</b><span>aus 536 Bewertungen auf REVIEWS.io</span></div>
+    <div class="qrow" aria-label="Kundenbewertungen, seitlich wischen">
+      <article class="qrv">
+        <figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=600" alt="Dackel im KUDDE in brombeer" loading="lazy"><figcaption class="qtag">Im Bild: Dackel · KUDDE brombeer</figcaption></figure>
+        <div class="qrv-b">
+          <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+          <p class="qrv-text">Also die Lieferung war mega schnell. Gestern bestellt, heute angekommen. Mein Hund ist sofort ins Körbchen gesprungen, hat sich ganz lang gemacht und sich rundum wohlgefühlt, mal schauen wie die erste Nacht ist, vielleicht lässt sie mich ja länger schlafen als sonst🤣das Bett sieht sehr hochwertig aus und fühlt sich auch so an. I</p>
+          <div class="qrv-foot">
+            <span class="rv-av" style="background:#A38361" aria-hidden="true">M</span>
+            <span class="qrv-who"><b>Mandy</b><small>05.11.2025 · All-in Relax Bundle</small></span>
+          </div>
+        </div>
+      </article>
+      <article class="qrv">
+        <figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4570Shop.jpg?v=1773916340&width=600" alt="Havaneser im KUDDE in schwarz" loading="lazy"><figcaption class="qtag">Im Bild: Havaneser · KUDDE schwarz</figcaption></figure>
+        <div class="qrv-b">
+          <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+          <p class="qrv-text">Sehr hochwertiges Hundebett. Gut zu reinigen. Unser Hund liebt es.</p>
+          <div class="qrv-foot">
+            <span class="rv-av" style="background:#5F7A8C" aria-hidden="true">B</span>
+            <span class="qrv-who"><b>Bettina</b><small>22.09.2026 · KUDDE Hundebett Kunstleder</small></span>
+          </div>
+        </div>
+      </article>
+      <article class="qrv">
+        <figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A2865Shop.jpg?v=1773916340&width=600" alt="Springer Spaniel im KUDDE in zartbitter" loading="lazy"><figcaption class="qtag">Im Bild: Springer Spaniel · KUDDE zartbitter</figcaption></figure>
+        <div class="qrv-b">
+          <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+          <p class="qrv-text">Das ist unser drittes Kudde für unseren Hund, in verschiedenen Zimmern. Das Kunstleder hat eine tolle Qualität und ist halt super zu reinigen. Unser Hund liebt seine Betten sehr und kuschelt sich in allen Positionen rein.</p>
+          <div class="qrv-foot">
+            <span class="rv-av" style="background:#8C6A5D" aria-hidden="true">S</span>
+            <span class="qrv-who"><b>Susanne</b><small>15.10.2026 · KUDDE Hundebett Kunstleder</small></span>
+          </div>
+        </div>
+      </article>
+      <article class="qrv">
+        <figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/MjuckPearlSofa.jpg?v=1757405427&width=600" alt="Border Collie auf der MJUCK Einlage auf dem Sofa" loading="lazy"><figcaption class="qtag">Im Bild: Border Collie · MJUCK Einlage</figcaption></figure>
+        <div class="qrv-b">
+          <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+          <p class="qrv-text">Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.</p>
+          <div class="qrv-foot">
+            <span class="rv-av" style="background:#6F8A6B" aria-hidden="true">F</span>
+            <span class="qrv-who"><b>Franziska Bauknecht</b><small>01.01.2026 · All-in Relax Bundle</small></span>
+          </div>
+        </div>
+      </article>
     </div>
+    <p class="small qhint">Seitlich wischen für weitere Bewertungen →</p>
   </div>
 </section>
 
