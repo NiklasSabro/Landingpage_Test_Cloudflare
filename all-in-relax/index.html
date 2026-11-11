@@ -104,6 +104,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .benefits li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:15px}
 .benefits svg{width:22px;height:22px;stroke:var(--caramel);fill:none;stroke-width:1.6;margin-top:1px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;text-align:center;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border-radius:8px;padding:17px 20px;border:0;width:100%}
+.btn.js-buy{flex-direction:column;gap:2px;line-height:1.35}  /* Kauf-Buttons immer zweizeilig: "Ins Warenkörbchen" / "– 5 € gespart" */
 .btn--light{background:#fff;color:var(--espresso)}
 .btn--dark{background:var(--espresso);color:#fff}
 .btn--go{background:var(--good);color:#fff;font-size:15px;padding:19px 20px;box-shadow:0 6px 18px rgba(47,122,78,.28)}
@@ -439,7 +440,7 @@ footer a{color:#CDBFB2}
         <li><span><b>Allergikerfreundlich:</b> alle Teile aus hochwertigen Materialien</span></li>
       </ul>
 
-      <a class="btn btn--go js-buy" href="#">Ins Warenkörbchen – 5&nbsp;€ gespart →</a>
+      <a class="btn btn--go js-buy" href="#"><span>Ins Warenkörbchen</span><span>– 5&nbsp;€ gespart</span></a>
       <div class="assure">
         <div><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4 M12 11v10"/></svg>Versand durch SABRO aus Deutschland</div>
         <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>100 Tage Probeschlafen für das KUDDE</div>
@@ -552,7 +553,7 @@ footer a{color:#CDBFB2}
           <span class="codeline">Code <b class="js-code">RELAX5</b> wird im Warenkorb automatisch abgezogen</span>
         </div>
         <div class="urgent">Der Code gilt nur noch heute · <b class="num" id="t-inline">00:00:00</b></div>
-        <a class="btn btn--dark js-buy" href="#">Ins Warenkörbchen – 5&nbsp;€ gespart →</a>
+        <a class="btn btn--dark js-buy" href="#"><span>Ins Warenkörbchen</span><span>– 5&nbsp;€ gespart</span></a>
         <p class="secure">🔒 Du kommst direkt in den SABRO-Warenkorb, der Rabatt ist schon abgezogen.</p>
       </div>
     </div>
@@ -803,7 +804,7 @@ footer a{color:#CDBFB2}
       </div>
       <p class="num"><b class="js-variant-meta">sahara · L (80 × 100 cm) · Standard</b><br>statt <s class="js-p-compare">294,70 €</s> nur <b class="js-p-final" style="font-size:20px">219,80 €</b></p>
     </div>
-    <a class="btn btn--light js-buy" href="#">Ins Warenkörbchen – 5&nbsp;€ gespart →</a>
+    <a class="btn btn--light js-buy" href="#"><span>Ins Warenkörbchen</span><span>– 5&nbsp;€ gespart</span></a>
     <a class="small" href="#produkt" style="color:#CDBFB2;text-align:center">Farbe oder Größe ändern</a>
   </div>
 </section>
@@ -818,7 +819,7 @@ footer a{color:#CDBFB2}
 <div class="sticky" id="sticky">
   <div class="wrap">
     <div class="p"><b class="js-p-final">219,80 €</b><small class="js-variant-meta">sahara · L · Standard</small></div>
-    <a class="btn btn--go js-buy" href="#">Ins Warenkörbchen – 5&nbsp;€ gespart →</a>
+    <a class="btn btn--go js-buy" href="#"><span>Ins Warenkörbchen</span><span>– 5&nbsp;€ gespart</span></a>
   </div>
 </div>
 
