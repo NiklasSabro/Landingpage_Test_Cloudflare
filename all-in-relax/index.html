@@ -198,20 +198,35 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .btn--ghost{background:transparent;border:1px solid var(--espresso);color:var(--espresso)}
 
 /* Reviews */
-.summary{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.summary .score{font-family:var(--font-display);font-size:38px;line-height:1}
-.summary p{font-size:13px;color:var(--muted)}
-.rv{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.rv-v{background:var(--good);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:7px}
-.rv-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 0;gap:10px}
-.rv-h b{font-size:15px}
-.rv-h small{display:block;font-size:12px;color:var(--muted);font-style:italic}
-.rv-media{margin-top:12px}  /* Hier optional eigene Screenshots einsetzen: <img src="..." alt="..."> */
-.rv-media:empty{display:none}
-.rv-media img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.rv-b{padding:12px 16px 16px;display:flex;flex-direction:column;gap:6px}
-.rv-b h3{font-family:var(--font-body);font-size:16px;font-weight:700}
-.rv-b p{font-size:14px;color:#4A3E37}
+.rvw{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px;font-family:var(--font-body)}
+.rvw-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.rvw-score{display:flex;align-items:center;gap:10px}
+.rvw-num{font-size:34px;font-weight:700;line-height:1}
+.rvw-count{font-size:13px;color:var(--muted)}
+.rvw-src{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted)}
+.rvw-src svg{width:16px;height:16px;fill:none;stroke:var(--good);stroke-width:1.8}
+.rvw-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.rvw-tab{flex:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;color:var(--ink)}
+.rvw-tab span{font-weight:400;color:var(--muted)}
+.rvw-tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.rvw-tab[aria-pressed="true"] span{color:#DCCFC3}
+.rvw-list{display:flex;flex-direction:column}
+.rv{padding:16px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.rv:first-child{padding-top:4px}
+.rv-h{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center}
+.rv-av{width:36px;height:36px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.rv-who{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.rv-who b{font-size:14px;overflow-wrap:anywhere}
+.rv-ver{font-size:12px;color:var(--muted);font-weight:500}
+.rv-date{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rv-stars{display:flex;gap:1px;font-size:16px;line-height:1}
+.rv-stars.big{font-size:18px}
+.rv-stars .s{color:#F2B01E}
+.rv-stars .s.off{color:#DDD5CC}
+.rv-text{font-size:14px;line-height:1.55;color:#3F342E;overflow-wrap:anywhere}
+.rv-prod{font-size:12px;color:var(--muted)}
+.rv-media:empty{display:none}  /* Hier optional eigene Screenshots einsetzen: <img src="..." alt="..."> */
+.rv-media img{width:100%;max-width:220px;border-radius:6px}
 .more[hidden]{display:none!important}
 
 /* Size finder */
@@ -331,10 +346,58 @@ footer a{color:#CDBFB2}
     <h2>Was Hundehalter nach der <em class="mark">ersten Nacht</em> erzählen</h2>
     <p class="lead">Echte Bewertungen von Kundinnen und Kunden, die das KUDDE oder das All-in Relax Bundle gekauft haben. Die Fotos stammen aus unserem Shooting.</p>
     <div class="qgrid">
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=500" alt="Dackel im KUDDE in brombeer" loading="lazy"><span class="qtag">Dackel · KUDDE brombeer</span></figure><div><p>„Mein Hund ist sofort ins Körbchen gesprungen, hat sich ganz lang gemacht und sich rundum wohlgefühlt.“</p><b>Mandy · verifizierter Kauf</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4570Shop.jpg?v=1773916340&width=500" alt="Havaneser im KUDDE in schwarz" loading="lazy"><span class="qtag">Havaneser · KUDDE schwarz</span></figure><div><p>„Sehr hochwertiges Hundebett. Gut zu reinigen. Unser Hund liebt es.“</p><b>Bettina · verifizierter Kauf</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A2865Shop.jpg?v=1773916340&width=500" alt="Springer Spaniel im KUDDE in zartbitter" loading="lazy"><span class="qtag">Springer Spaniel · KUDDE zartbitter</span></figure><div><p>„Das Kunstleder hat eine tolle Qualität und ist halt super zu reinigen.“</p><b>Susanne · verifizierter Kauf</b></div></div>
-      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/MjuckPearlSofa.jpg?v=1757405427&width=500" alt="Border Collie auf der MJUCK Einlage auf dem Sofa" loading="lazy"><span class="qtag">Border Collie · MJUCK Einlage</span></figure><div><p>„Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.“</p><b>Franziska · verifizierter Kauf</b></div></div>
+      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A3269web.jpg?v=1773916340&width=500" alt="Dackel im KUDDE in brombeer" loading="lazy"><span class="qtag">Dackel · KUDDE brombeer</span></figure><div><p>„Mein Hund ist sofort ins Körbchen gesprungen, hat sich ganz lang gemacht und sich rundum wohlgefühlt.“</p><b>Mandy · Kundin/Kunde</b></div></div>
+      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A4570Shop.jpg?v=1773916340&width=500" alt="Havaneser im KUDDE in schwarz" loading="lazy"><span class="qtag">Havaneser · KUDDE schwarz</span></figure><div><p>„Sehr hochwertiges Hundebett. Gut zu reinigen. Unser Hund liebt es.“</p><b>Bettina · Kundin/Kunde</b></div></div>
+      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/4N3A2865Shop.jpg?v=1773916340&width=500" alt="Springer Spaniel im KUDDE in zartbitter" loading="lazy"><span class="qtag">Springer Spaniel · KUDDE zartbitter</span></figure><div><p>„Das Kunstleder hat eine tolle Qualität und ist halt super zu reinigen.“</p><b>Susanne · Kundin/Kunde</b></div></div>
+      <div class="qcard"><figure class="qimg"><img src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/MjuckPearlSofa.jpg?v=1757405427&width=500" alt="Border Collie auf der MJUCK Einlage auf dem Sofa" loading="lazy"><span class="qtag">Border Collie · MJUCK Einlage</span></figure><div><p>„Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.“</p><b>Franziska · Kundin/Kunde</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUKT / KONFIGURATOR ========== -->
+<section class="band" id="produkt">
+  <div class="wrap">
+    <h2>All-in Relax <em class="hl">Bundle</em></h2>
+    <p class="lead" style="font-family:var(--font-display);font-style:italic">KUDDE Hundebett + MJUCK Einlage + MJUCKIS Kissen, farblich aufeinander abgestimmt</p>
+
+    <div class="gallery">
+      <div class="gmain">
+        <img id="g-img" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_sahara.png?v=1786374626&width=1100" alt="All-in Relax Bundle" width="1100" height="825">
+        <button class="gnav prev" type="button" aria-label="Vorheriges Bild" id="g-prev">‹</button>
+        <button class="gnav next" type="button" aria-label="Nächstes Bild" id="g-next">›</button>
+      </div>
+      <div class="thumbs" id="g-thumbs"></div>
+    </div>
+
+    <div class="picker">
+      <fieldset class="field">
+        <legend>Farbe: <span class="js-lbl-color">sahara</span></legend>
+        <div class="swatches js-sw"></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Größe: <span class="js-lbl-size">L (80 × 100 cm)</span></legend>
+        <div class="sizes js-sizes"></div>
+        <div class="sizehint js-sizehint"></div>
+        <a href="#groesse" class="small">Unsicher? Zum Größenfinder ↓</a>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Schaumstoff</legend>
+        <div class="foam js-foam"></div>
+      </fieldset>
+
+      <ul class="checks">
+        <li><span><b>Orthopädisches KUDDE Hundebett</b> aus robustem, abwischbarem Kunstleder</span></li>
+        <li><span><b>MJUCK Einlage</b> aus Breitcord, passgenau zum KUDDE, waschbar &amp; trocknergeeignet</span></li>
+        <li><span><b>MJUCKIS Kuschelkissen</b> 40 × 40 cm mit wasserabweisendem Schutzbezug</span></li>
+        <li><span><b>10 Jahre Garantie</b> auf die Formstabilität des Schaumkerns</span></li>
+        <li><span><b>Allergikerfreundlich:</b> alle Teile aus hochwertigen Materialien</span></li>
+      </ul>
+
+      <a class="btn btn--go js-buy" href="#">Mit Code <span class="js-code">RELAX5</span> sichern →</a>
+      <div class="assure">
+        <div><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4 M12 11v10"/></svg>Versand durch SABRO aus Deutschland</div>
+        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>100 Tage Probeschlafen für das KUDDE</div>
+      </div>
     </div>
   </div>
 </section>
@@ -399,51 +462,205 @@ footer a{color:#CDBFB2}
   </div>
 </section>
 
-<!-- ========== PRODUKT / KONFIGURATOR ========== -->
-<section class="band" id="produkt">
+<!-- ========== REVIEWS (Originaltexte aus Reviews.io; eigene Screenshots optional in .rv-media einsetzen) ========== -->
+<section class="band band--paper" id="bewertungen">
   <div class="wrap">
-    <h2>All-in Relax <em class="hl">Bundle</em></h2>
-    <p class="lead" style="font-family:var(--font-display);font-style:italic">KUDDE Hundebett + MJUCK Einlage + MJUCKIS Kissen, farblich aufeinander abgestimmt</p>
-
-    <div class="gallery">
-      <div class="gmain">
-        <img id="g-img" src="https://cdn.shopify.com/s/files/1/0845/7512/5802/files/AllinRelaxBundle_Freisteller_sahara.png?v=1786374626&width=1100" alt="All-in Relax Bundle" width="1100" height="825">
-        <button class="gnav prev" type="button" aria-label="Vorheriges Bild" id="g-prev">‹</button>
-        <button class="gnav next" type="button" aria-label="Nächstes Bild" id="g-next">›</button>
+    <h2>Das sagen unsere <em class="mark">Kundinnen &amp; Kunden</em></h2>
+    <div class="rvw">
+      <div class="rvw-head">
+        <div class="rvw-score">
+          <span class="rvw-num num">4,86</span>
+          <div><div class="rv-stars big"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div><span class="rvw-count">536 Bewertungen</span></div>
+        </div>
+        <span class="rvw-src"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Bewertungen über REVIEWS.io</span>
       </div>
-      <div class="thumbs" id="g-thumbs"></div>
+      <div class="rvw-tabs" role="tablist">
+        <button type="button" class="rvw-tab" data-filter="all" aria-pressed="true">Alle</button>
+        <button type="button" class="rvw-tab" data-filter="bundle" aria-pressed="false">All-in Relax Bundle <span>4,91 ★ (33)</span></button>
+        <button type="button" class="rvw-tab" data-filter="kudde" aria-pressed="false">KUDDE Hundebett <span>4,86 ★ (536)</span></button>
+      </div>
+      <div class="rvw-list">
+      <article class="rv" data-product="kudde" data-rank="0">
+        <div class="rv-h">
+          <span class="rv-av" style="background:#A38361" aria-hidden="true">S</span>
+          <div class="rv-who"><b>Sonja Schäfer</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-06-11">11.06.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Habe heute das Bett, Grösse L, für meine Mischlingshündin (8 Jahre) erhalten. Zusammenbau ging gut, Einlage rein und ab damit ins Wohnzimmer...Meine Hündin hatte ein Bett, aber das schien ihr nicht zu gefallen, sehr oft lag sie daneben oder auf den Fliesen.... was soll ich sagen, sie lag sofort in ihrem neuen Bett, ausgestreckt, vollkommen relaxt und jetzt schläft sie! Ich würde sagen das war ein Volltreffer! Ich habe heute gleich nochmal bestellt in Grösse S für meinen zweiten Hund... der soll sich genauso wohlfühlen wie meine ältere Dame.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: KUDDE Hundebett Kunstleder</p>
+      </article>
+      <article class="rv" data-product="bundle" data-rank="1">
+        <div class="rv-h">
+          <span class="rv-av" style="background:#6F8A6B" aria-hidden="true">J</span>
+          <div class="rv-who"><b>Jennifer</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2025-12-12">12.12.2025</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Gestern bestellt, heute geliefert. Das Hundebett ist der Hammer, toll verarbeitet, einfach zusammenzubauen und anscheinend sehr bequem ☺️ mit der Decke und dem Kissen sieht es  sehr gemütlich aus. <br>Einfach perfekt 😍</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv" data-product="bundle" data-rank="2">
+        <div class="rv-h">
+          <span class="rv-av" style="background:#8C6A5D" aria-hidden="true">T</span>
+          <div class="rv-who"><b>Torsten</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-02-01">01.02.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Nach sage und schreibe 26 Jahren haben wir unsere erste Sabro-Kudde ersetzen müssen.Wenn das keine Aussage über die Qualität ist!Unsere Ridgebacks haben sie geliebt und werden mit der neuen Kudde und der passenden Spezialeinlage genau so zufrieden sein.Tolles Material und Verarbeitung,einfach genial!Vielen Dank!</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv" data-product="bundle" data-rank="3">
+        <div class="rv-h">
+          <span class="rv-av" style="background:#5F7A8C" aria-hidden="true">T</span>
+          <div class="rv-who"><b>Tanja</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2025-12-17">17.12.2025</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Mein Kudde ist heute angekommen. Ich bin begeistert vom Design und der Qualität des Produktes.<br>Meine 13 Jährige Jackrusseldame nahm es sofort in Beschlag und lag den ganzen Tag in ihrem neuen Bett anstatt auf der Couch wie üblich.<br>Preisleistung ist absolut genial und das Bett sieht in echt viel schöner aus als auf den Bildern!</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="kudde" data-rank="4" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#9A7B4F" aria-hidden="true">R</span>
+          <div class="rv-who"><b>Robin</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-06-10">10.06.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Wir haben seit ein paar Tagen eine Hündin aus dem Tierschutz bei uns aufgenommen. Sie hat bislang nur auf dem harten Boden geschlafen und ist bei einigen neuen Sachen noch sehr verängstigt. Das Kudde Hundebett scheint ihr jedoch eine gewisse Sicherheit zu geben, denn bereits am zweiten Tag ist sie darin zur Ruhe gekommen und seit dem sucht sie den Komfort dort. Wir sind sehr zufrieden</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: KUDDE Hundebett Kunstleder</p>
+      </article>
+      <article class="rv more" data-product="bundle" data-rank="5" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#7A6A8C" aria-hidden="true">S</span>
+          <div class="rv-who"><b>Stephanie Steinbrunn</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-03-07">07.03.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Ich bin total begeistert. Bestellt und am nächsten Tag schon da. Die Qualität ist absolut überzeugend. Mein 17 jähriger Hund hat es sofort angenommen. Immer wieder❣️🐕</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="kudde" data-rank="6" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#A38361" aria-hidden="true">A</span>
+          <div class="rv-who"><b>Anonym</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-08-01">01.08.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Tolles Hundebett, meine 10 jährige Labradorhündin nimmt es super an. Das Aufstehen und Aussteigen aus dem Bett fällt ihr deutlich leichter, als auf weicheren Kissen. Das Bett lässt sich super reinigen und die mitgelieferte Auflage und super flauschig.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: KUDDE Hundebett Kunstleder</p>
+      </article>
+      <article class="rv more" data-product="bundle" data-rank="7" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#6F8A6B" aria-hidden="true">K</span>
+          <div class="rv-who"><b>Kai</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-08-24">24.08.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Unsere 1 Kudde ist 10 Jahre alt und noch wie neu. Selten, dass ein Produkt so überzeugt. Darum haben wir für ein weiteres gemütliches Örtchen jetzt die 3. Kudde gekauft.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="bundle" data-rank="8" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#8C6A5D" aria-hidden="true">T</span>
+          <div class="rv-who"><b>Tanja</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-06-10">10.06.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="4 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s off">★</span></div>
+        <p class="rv-text">Gute Qualität, sieht hochwertig aus. Da es neu ist kann ich nichts zur Haltbarkeit sagen. Die Einlage verrutscht, da könnte man vielleicht etwas machen. Daher &quot;nur&quot; 4 Sterne.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="bundle" data-rank="9" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#5F7A8C" aria-hidden="true">J</span>
+          <div class="rv-who"><b>Jörg</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-07-25">25.07.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Lieferung top, alles sicher verpackt gewesen. Kissen, Einlage und Bett in Top-Qualität. Mein Hund (Husky) legt sich sogar ab und zu rein, er nutzt aber auch weiterhin Sofa, Bett und den Rest des Hauses :-)</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="bundle" data-rank="10" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#9A7B4F" aria-hidden="true">F</span>
+          <div class="rv-who"><b>Franziska Bauknecht</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-01-01">01.01.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: All-in Relax Bundle</p>
+      </article>
+      <article class="rv more" data-product="kudde" data-rank="11" hidden>
+        <div class="rv-h">
+          <span class="rv-av" style="background:#7A6A8C" aria-hidden="true">S</span>
+          <div class="rv-who"><b>Susanne</b><span class="rv-ver">Kundenbewertung</span></div>
+          <time class="rv-date" datetime="2026-10-15">15.10.2026</time>
+        </div>
+        <div class="rv-stars" aria-label="5 von 5 Sternen"><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span></div>
+        <p class="rv-text">Das ist unser drittes Kudde für unseren Hund, in verschiedenen Zimmern. Das Kunstleder hat eine tolle Qualität und ist halt super zu reinigen. Unser Hund liebt seine Betten sehr und kuschelt sich in allen Positionen rein.</p>
+        <div class="rv-media"></div>
+        <p class="rv-prod">Bewertetes Produkt: KUDDE Hundebett Kunstleder</p>
+      </article>
+      </div>
+      <button class="btn btn--ghost" type="button" id="more-rv">Weitere Bewertungen anzeigen</button>
+    </div>
+    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
+  </div>
+</section>
+
+<!-- ========== GRÖSSENFINDER ========== -->
+<section class="band" id="groesse">
+  <div class="wrap">
+    <span class="eyebrow">Die richtige Größe</span>
+    <h2>Warum die Größe über guten Schlaf entscheidet</h2>
+    <div class="facts">
+      <div class="fact"><i>1</i><p><b>Miss deinen Hund von der Nasenspitze bis zum Rutenansatz.</b> Dieses Maß sollte die Liegefläche nicht überschreiten.</p></div>
+      <div class="fact"><i>2</i><p><b>Lieber nicht zu klein wählen.</b> Dein Hund muss sich der Rückenlänge nach komplett ausstrecken können, um rückenschonend zu schlafen.</p></div>
+      <div class="fact"><i>3</i><p><b>Jede Größe hat ihre eigene Schaumstoffdichte</b>, passend zu Größe und Gewicht. Rand immer 15&nbsp;cm, Bodenplatte immer 5&nbsp;cm.</p></div>
     </div>
 
-    <div class="picker">
-      <fieldset class="field">
-        <legend>Farbe: <span class="js-lbl-color">sahara</span></legend>
-        <div class="swatches js-sw"></div>
-      </fieldset>
-      <fieldset class="field">
-        <legend>Größe: <span class="js-lbl-size">L (80 × 100 cm)</span></legend>
-        <div class="sizes js-sizes"></div>
-        <div class="sizehint js-sizehint"></div>
-        <a href="#groesse" class="small">Unsicher? Zum Größenfinder ↓</a>
-      </fieldset>
-      <fieldset class="field">
-        <legend>Schaumstoff</legend>
-        <div class="foam js-foam"></div>
-      </fieldset>
-
-      <ul class="checks">
-        <li><span><b>Orthopädisches KUDDE Hundebett</b> aus robustem, abwischbarem Kunstleder</span></li>
-        <li><span><b>MJUCK Einlage</b> aus Breitcord, passgenau zum KUDDE, waschbar &amp; trocknergeeignet</span></li>
-        <li><span><b>MJUCKIS Kuschelkissen</b> 40 × 40 cm mit wasserabweisendem Schutzbezug</span></li>
-        <li><span><b>10 Jahre Garantie</b> auf die Formstabilität des Schaumkerns</span></li>
-        <li><span><b>Allergikerfreundlich:</b> alle Teile aus hochwertigen Materialien</span></li>
-      </ul>
-
-      <a class="btn btn--go js-buy" href="#">Mit Code <span class="js-code">RELAX5</span> sichern →</a>
-      <div class="assure">
-        <div><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z M3 7l9 4 9-4 M12 11v10"/></svg>Versand durch SABRO aus Deutschland</div>
-        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>100 Tage Probeschlafen für das KUDDE</div>
-      </div>
+    <div class="finder">
+      <label class="flabel" for="len">Wie lang ist dein Hund? <span>(von der Nasenspitze bis zum Rutenansatz)</span></label>
+      <output id="len-out" for="len">70 cm</output>
+      <input type="range" id="len" min="25" max="130" value="70" step="1">
+      <div class="sizehint" id="finder-res"></div>
+      <div class="measure num" id="finder-measure"></div>
+      <button class="btn btn--dark" type="button" id="finder-apply">Diese Größe übernehmen</button>
     </div>
+  </div>
+</section>
+
+<!-- ========== VERGLEICH ========== -->
+<section class="band band--paper">
+  <div class="wrap">
+    <span class="eyebrow" style="text-align:center">Zusammengefasst</span>
+    <h2 style="text-align:center">Deshalb schlafen <em class="mark">500.000 Hunde</em> auf einem KUDDE</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th class="col-us">KUDDE</th><th>Typisches Hundekissen</th></tr></thead>
+        <tbody>
+          <tr><td>Liegeform</td><td class="col-us"><b>rechteckig</b><small>Wirbelsäule gestreckt</small></td><td>oft rund<small>Hund liegt eingerollt</small></td></tr>
+          <tr><td>Kern</td><td class="col-us"><b>formstabiler Schaum</b><small>10 Jahre Garantie</small></td><td>Füllwatte<small>liegt sich platt</small></td></tr>
+          <tr><td>Reinigung</td><td class="col-us"><b>abwischen</b><small>Einlage waschbar</small></td><td>ganzen Bezug waschen</td></tr>
+          <tr><td>Allergiker</td><td class="col-us"><b>geeignet</b><small>keine Verstecke für Milben</small></td><td>Stoff sammelt Haare &amp; Milben</td></tr>
+          <tr><td>Fußbodenheizung</td><td class="col-us"><b>isolierte Unterseite</b></td><td>selten bedacht</td></tr>
+          <tr><td>Bezug tauschbar</td><td class="col-us"><b>ja</b><small>viele Farben &amp; Stoffe</small></td><td>meist nicht</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="text-align:center;font-style:italic">Vergleich mit gängigen Füllwatte-Hundekissen, nicht mit einem bestimmten Anbieter.</p>
+    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
   </div>
 </section>
 
@@ -504,137 +721,6 @@ footer a{color:#CDBFB2}
   </div>
 </section>
 
-<!-- ========== REVIEWS (hier können eigene Screenshots in .rv-media eingesetzt werden) ========== -->
-<section class="band band--paper">
-  <div class="wrap">
-    <h2>Über 500 Bewertungen aus <em class="mark">unserer Community</em></h2>
-    <div class="summary">
-      <div class="score num">4,86</div>
-      <div><div class="stars" aria-hidden="true">★★★★★</div><p>536 Bewertungen für das KUDDE · All-in Relax Bundle 4,91 / 5 (33 Bewertungen) · Quelle: Reviews.io</p></div>
-    </div>
-
-    <article class="rv">
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Sonja Schäfer</b><small>Mischlingshündin, 8 Jahre · KUDDE L</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Ich würde sagen, das war ein Volltreffer!“</h3><p>Meine Hündin hatte ein Bett, aber das schien ihr nicht zu gefallen, sehr oft lag sie daneben oder auf den Fliesen. Was soll ich sagen, sie lag sofort in ihrem neuen Bett, ausgestreckt, vollkommen relaxt und jetzt schläft sie! Ich habe heute gleich nochmal bestellt in Größe S für meinen zweiten Hund.</p></div>
-    </article>
-
-    <article class="rv">
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Jennifer</b><small>All-in Relax Bundle</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Einfach perfekt.“</h3><p>Gestern bestellt, heute geliefert. Das Hundebett ist der Hammer, toll verarbeitet, einfach zusammenzubauen und anscheinend sehr bequem. Mit der Decke und dem Kissen sieht es sehr gemütlich aus.</p></div>
-    </article>
-
-    <article class="rv">
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Robin</b><small>Hündin aus dem Tierschutz</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Es scheint ihr Sicherheit zu geben.“</h3><p>Sie hat bislang nur auf dem harten Boden geschlafen und ist bei einigen neuen Sachen noch sehr verängstigt. Das Kudde Hundebett scheint ihr jedoch eine gewisse Sicherheit zu geben, denn bereits am zweiten Tag ist sie darin zur Ruhe gekommen und seitdem sucht sie den Komfort dort.</p></div>
-    </article>
-
-    <article class="rv">
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Torsten</b><small>Ridgebacks</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Wenn das keine Aussage über die Qualität ist!“</h3><p>Nach sage und schreibe 26 Jahren haben wir unsere erste Sabro-Kudde ersetzen müssen. Unsere Ridgebacks haben sie geliebt und werden mit der neuen Kudde und der passenden Spezialeinlage genauso zufrieden sein. Tolles Material und Verarbeitung, einfach genial!</p></div>
-    </article>
-
-    <article class="rv more" hidden>
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Sabrina</b><small>All-in Relax Bundle in sahara</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Passt super in mein Wohnzimmer.“</h3><p>Ein optisch wirklich schönes Bett. Das Saharabeige passt super in mein Wohnzimmer. Der Kunstlederbezug ist abwaschbar, austauschbar und fühlt sich gut an. Die Einlage ist mega kuschelig und das Kissen in hochwertiger Qualität.</p></div>
-    </article>
-
-    <article class="rv more" hidden>
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Tanja</b><small>Jack-Russell-Dame, 13 Jahre</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Sieht in echt viel schöner aus als auf den Bildern.“</h3><p>Ich bin begeistert vom Design und der Qualität des Produktes. Meine 13-jährige Jackrusseldame nahm es sofort in Beschlag und lag den ganzen Tag in ihrem neuen Bett anstatt auf der Couch wie üblich.</p></div>
-    </article>
-
-    <article class="rv more" hidden>
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Anonym</b><small>Labradorhündin, 10 Jahre</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Das Aufstehen fällt ihr deutlich leichter.“</h3><p>Meine 10-jährige Labradorhündin nimmt es super an. Das Aufstehen und Aussteigen aus dem Bett fällt ihr deutlich leichter als auf weicheren Kissen. Das Bett lässt sich super reinigen und die mitgelieferte Auflage ist super flauschig.</p></div>
-    </article>
-
-    <article class="rv more" hidden>
-      <div class="rv-v">✓ Verifizierter Kauf</div>
-      <div class="rv-h"><div><b>Franziska Bauknecht</b><small>KUDDE mit MJUCK Einlage</small></div><span class="stars">★★★★★</span></div>
-      <div class="rv-media"></div>
-      <div class="rv-b"><h3>„Gar nicht mehr rauszukriegen.“</h3><p>Unsere Hündin liebt ihre Kudde, vor allem mit der Mjuck-Einlage. Sie ist gar nicht mehr raus zu kriegen.</p></div>
-    </article>
-
-    <button class="btn btn--ghost" type="button" id="more-rv">Weitere Bewertungen anzeigen</button>
-    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
-  </div>
-</section>
-
-<!-- ========== GRÖSSENFINDER ========== -->
-<section class="band" id="groesse">
-  <div class="wrap">
-    <span class="eyebrow">Die richtige Größe</span>
-    <h2>Warum die Größe über guten Schlaf entscheidet</h2>
-    <div class="facts">
-      <div class="fact"><i>1</i><p><b>Miss deinen Hund von der Nasenspitze bis zum Rutenansatz.</b> Dieses Maß sollte die Liegefläche nicht überschreiten.</p></div>
-      <div class="fact"><i>2</i><p><b>Lieber nicht zu klein wählen.</b> Dein Hund muss sich der Rückenlänge nach komplett ausstrecken können, um rückenschonend zu schlafen.</p></div>
-      <div class="fact"><i>3</i><p><b>Jede Größe hat ihre eigene Schaumstoffdichte</b>, passend zu Größe und Gewicht. Rand immer 15&nbsp;cm, Bodenplatte immer 5&nbsp;cm.</p></div>
-    </div>
-
-    <div class="finder">
-      <label class="flabel" for="len">Wie lang ist dein Hund? <span>(von der Nasenspitze bis zum Rutenansatz)</span></label>
-      <output id="len-out" for="len">70 cm</output>
-      <input type="range" id="len" min="25" max="130" value="70" step="1">
-      <div class="sizehint" id="finder-res"></div>
-      <div class="measure num" id="finder-measure"></div>
-      <button class="btn btn--dark" type="button" id="finder-apply">Diese Größe übernehmen</button>
-    </div>
-  </div>
-</section>
-
-<!-- ========== VERGLEICH ========== -->
-<section class="band band--paper">
-  <div class="wrap">
-    <span class="eyebrow" style="text-align:center">Zusammengefasst</span>
-    <h2 style="text-align:center">Deshalb schlafen <em class="mark">500.000 Hunde</em> auf einem KUDDE</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th></th><th class="col-us">KUDDE</th><th>Typisches Hundekissen</th></tr></thead>
-        <tbody>
-          <tr><td>Liegeform</td><td class="col-us"><b>rechteckig</b><small>Wirbelsäule gestreckt</small></td><td>oft rund<small>Hund liegt eingerollt</small></td></tr>
-          <tr><td>Kern</td><td class="col-us"><b>formstabiler Schaum</b><small>10 Jahre Garantie</small></td><td>Füllwatte<small>liegt sich platt</small></td></tr>
-          <tr><td>Reinigung</td><td class="col-us"><b>abwischen</b><small>Einlage waschbar</small></td><td>ganzen Bezug waschen</td></tr>
-          <tr><td>Allergiker</td><td class="col-us"><b>geeignet</b><small>keine Verstecke für Milben</small></td><td>Stoff sammelt Haare &amp; Milben</td></tr>
-          <tr><td>Fußbodenheizung</td><td class="col-us"><b>isolierte Unterseite</b></td><td>selten bedacht</td></tr>
-          <tr><td>Bezug tauschbar</td><td class="col-us"><b>ja</b><small>viele Farben &amp; Stoffe</small></td><td>meist nicht</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small" style="text-align:center;font-style:italic">Vergleich mit gängigen Füllwatte-Hundekissen, nicht mit einem bestimmten Anbieter.</p>
-    <a class="btn btn--dark btn-pill" href="#angebot">Angebot mit Code sichern →</a>
-  </div>
-</section>
-
-<!-- ========== FINALES ANGEBOT ========== -->
-<section class="band band--dark">
-  <div class="wrap">
-    <span class="eyebrow">Bereit für ruhige Nächte?</span>
-    <h2>Dein Code gilt <em class="hl">nur noch heute</em></h2>
-    <div class="codecard">
-      <div class="coderow">
-        <div class="code js-code">RELAX5</div>
-      </div>
-      <p class="num"><b class="js-variant-meta">sahara · L (80 × 100 cm) · Standard</b><br>statt <s class="js-p-compare">294,70 €</s> nur <b class="js-p-final" style="font-size:20px">219,80 €</b></p>
-    </div>
-    <a class="btn btn--light js-buy" href="#">Jetzt All-in Relax Bundle sichern →</a>
-    <a class="small" href="#produkt" style="color:#CDBFB2;text-align:center">Farbe oder Größe ändern</a>
-  </div>
-</section>
-
 <!-- ========== GARANTIE ========== -->
 <section class="band">
   <div class="wrap guarantee">
@@ -657,6 +743,22 @@ footer a{color:#CDBFB2}
     <details><summary>Was ist bei Größe XXL anders?</summary><p>Bei XXL bekommst du die XL-Breitcordeinlage, damit du sie noch problemlos in deiner Waschmaschine waschen kannst. Sie liegt auf der Liegefläche, ohne am Rand hochzustehen.</p></details>
     <details><summary>Wie reinige ich das Bett?</summary><p>Den Kunstlederbezug wischst du einfach feucht ab. Die MJUCK Einlage ist waschbar und trocknergeeignet, der Bezug des MJUCKIS Kissens ist abnehmbar und waschbar.</p></details>
     <details><summary>Kann ich zurückgeben, wenn es meinem Hund nicht gefällt?</summary><p>Ja. Für das KUDDE Hundebett gilt die 100-Tage-Geld-zurück-Garantie. Einlage und Kissen kannst du innerhalb von 14 Tagen originalverpackt und unbenutzt zurückgeben. Gibst du das KUDDE erst nach 14 Tagen zurück, wird der Originalpreis der Bundle-Artikel von der Erstattung abgezogen.</p></details>
+  </div>
+</section>
+
+<!-- ========== FINALES ANGEBOT ========== -->
+<section class="band band--dark">
+  <div class="wrap">
+    <span class="eyebrow">Bereit für ruhige Nächte?</span>
+    <h2>Dein Code gilt <em class="hl">nur noch heute</em></h2>
+    <div class="codecard">
+      <div class="coderow">
+        <div class="code js-code">RELAX5</div>
+      </div>
+      <p class="num"><b class="js-variant-meta">sahara · L (80 × 100 cm) · Standard</b><br>statt <s class="js-p-compare">294,70 €</s> nur <b class="js-p-final" style="font-size:20px">219,80 €</b></p>
+    </div>
+    <a class="btn btn--light js-buy" href="#">Jetzt All-in Relax Bundle sichern →</a>
+    <a class="small" href="#produkt" style="color:#CDBFB2;text-align:center">Farbe oder Größe ändern</a>
   </div>
 </section>
 
@@ -805,10 +907,25 @@ function renderFinder(){
   $("#finder-apply").textContent = `Größe ${k} übernehmen`;
 }
 $("#len").addEventListener("input", renderFinder);
-$("#finder-apply").addEventListener("click", e => { state.size = e.currentTarget.dataset.size; render(); $("#produkt").scrollIntoView(); });
+$("#finder-apply").addEventListener("click", e => { state.size = e.currentTarget.dataset.size; render(); $("#angebot").scrollIntoView(); });
 
 /* Weitere Bewertungen */
-$("#more-rv").addEventListener("click", e => { $$(".rv.more").forEach(el => el.hidden = false); e.currentTarget.hidden = true; });
+let rvFilter = "all", rvAll = false;
+function renderReviews(){
+  let shown = 0, total = 0;
+  $$(".rvw-list .rv").forEach(el => {
+    const match = rvFilter === "all" || el.dataset.product === rvFilter;
+    if (match) total++;
+    const show = match && (rvAll || shown < 4);
+    if (show) shown++;
+    el.hidden = !show;
+  });
+  $("#more-rv").hidden = rvAll || total <= 4;
+  $$(".rvw-tab").forEach(b => b.setAttribute("aria-pressed", b.dataset.filter === rvFilter));
+}
+$$(".rvw-tab").forEach(b => b.addEventListener("click", () => { rvFilter = b.dataset.filter; rvAll = false; renderReviews(); }));
+$("#more-rv").addEventListener("click", () => { rvAll = true; renderReviews(); });
+renderReviews();
 
 /* Meta Pixel: Events + Weitergabe der Anzeigen-Parameter an den Shop */
 function trackingQuery(){
